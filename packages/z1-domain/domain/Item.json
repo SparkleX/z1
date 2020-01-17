@@ -1,0 +1,19 @@
+{
+	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
+	"name":"Item",	
+	"description":"Item Master Data",
+	"columns": [
+		{
+			"name":"id",
+			"type":"string"
+		},
+		{
+			"name":"ItemCode",
+			"type":"string"
+		},
+		{
+			"name":"ItemName",
+			"type": "string"
+		}
+	]
+}

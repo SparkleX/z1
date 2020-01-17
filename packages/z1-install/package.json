@@ -1,0 +1,24 @@
+{
+	"name": "z1-install",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"bin": {
+		"c1-create-company": "./bin/CreateCompany.js"
+	},
+	"scripts": {
+		"all": "run-s build",
+		"prebuild": "npm run clean",
+		"clean": "rimraf dist",
+		"test": "mocha -r ts-node/register test/**/*Test.ts",
+		"cover": "nyc --reporter=lcov --reporter=text-summary mocha -r ts-node/register test/**/*Test.ts"
+	},
+	"author": "Sun, Xufei",
+	"license": "ISC",
+	"dependencies": {
+		"z1-domain": "1.0.0"
+	},
+	"devDependencies": {
+		
+	}
+}

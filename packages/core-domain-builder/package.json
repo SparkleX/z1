@@ -1,0 +1,21 @@
+{
+	"name": "core-domain-builder",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"bin": {
+		"core-domain-builder": "./bin/builder.js"
+	},
+	"scripts": {
+		"clean": "rimraf dist"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"jsonschema": "^1.2.4",
+		"yargs": "^14.2.0"
+	},
+	"devDependencies": {
+		"handlebars": "^4.5.1"
+	}
+}

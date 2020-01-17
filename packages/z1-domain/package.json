@@ -1,0 +1,19 @@
+{
+	"name": "z1-domain",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"scripts": {
+		"prebuild":"npx core-domain-builder --in=domain --out=src",
+		"build":"tsc"
+	},
+	"author": "Sun, Xufei",
+	"license": "ISC",
+	"dependencies": {
+
+	},
+	"devDependencies": {
+		"core-domain-builder":"1.0.0",
+		"typescript": "^3.6.4"
+	}
+}

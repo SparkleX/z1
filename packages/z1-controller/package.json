@@ -1,0 +1,22 @@
+{
+  "name": "z1-controller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "inversify-express-utils": "^6.3.2",
+    "core-repository": "1.0.0",
+    "z1-repository": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "express": "^4.17.1",
+    "typescript": "^3.6.4"
+  },
+  "author": "",
+  "license": "ISC"
+}

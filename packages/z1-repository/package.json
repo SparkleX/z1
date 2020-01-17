@@ -1,0 +1,20 @@
+{
+  "name": "z1-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+	
+  },
+  "dependencies": {
+	  "z1-domain":"1.0.0",
+	  "core-repository":"1.0.0",
+	  "core-repository-crud":"1.0.0"
+  },
+  "devDependencies": {
+	"typescript": "^3.6.4"
+  },
+  "author": "",
+  "license": "ISC"
+}

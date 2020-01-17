@@ -10,8 +10,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"cls-hooked": "^4.2.2",
-		"core-repository": "0.0.2",
-		"core-repository-crud": "0.0.2",
+		"core-repository": "1.0.0",
+		"core-repository-crud": "1.0.0",
 		"db-conn": "0.0.2",
 		"db-conn-sqljs": "0.0.2",
 		"express": "^4.17.1",

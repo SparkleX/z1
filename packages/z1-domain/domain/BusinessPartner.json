@@ -1,0 +1,19 @@
+{
+	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
+	"name":"BusinessPartner",	
+	"description":"BusinessPartner",
+	"columns": [
+		{
+			"name":"id",
+			"type":"string"
+		},
+		{
+			"name":"bpCode",
+			"type":"string"
+		},
+		{
+			"name":"bpName",
+			"type": "string"
+		}
+	]
+}

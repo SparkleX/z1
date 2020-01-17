@@ -1,0 +1,5 @@
+vue create mis-ui
+cd mis-ui
+vue add vuetify
+vue add @vue/cli-plugin-router
+vue add @vue/cli-plugin-typescript

@@ -1,0 +1,19 @@
+{
+	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
+	"name":"SalesOrder",	
+	"description":"Sales Order",
+	"columns": [
+		{
+			"name":"id",
+			"type":"string"
+		},
+		{
+			"name":"bp",
+			"type":"string"
+		},
+		{
+			"name":"docDueDate",
+			"type": "date"
+		}
+	]
+}

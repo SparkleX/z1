@@ -1,0 +1,14 @@
+{
+	"title" : "Item Master Data",
+	"key": "ItemCode",
+	"columns": [
+		{
+			"text": "Item Code",
+			"value": "ItemCode"
+		},
+		{
+			"text": "Item Name",
+			"value": "ItemName"
+		}
+	]
+}
