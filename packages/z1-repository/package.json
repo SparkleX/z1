@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
 	
   },
   "dependencies": {
@@ -13,7 +13,7 @@
 	  "core-repository-crud":"1.0.0"
   },
   "devDependencies": {
-	"typescript": "^3.6.4"
+	  "typescript": "^3.6.4"
   },
   "author": "",
   "license": "ISC"
