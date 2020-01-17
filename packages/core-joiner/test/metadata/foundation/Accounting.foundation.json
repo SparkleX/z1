@@ -1,0 +1,44 @@
+{
+	"$schema": "../../../schema/foundation.json",
+	"name": "Account",
+	"description": "Account",
+	"tables": [
+		{
+			"alias":"Account",
+			"table":"Account",			
+			"description":""
+		},
+		{
+			"alias":"Cashflow",
+			"table":"Cashflow",
+			"description":""
+		},
+		{
+			"alias":"Journal",
+			"table":"Journal",
+			"description":""
+		},
+		{
+			"alias":"JournalLine",
+			"table":"JournalLine",
+			"description":""
+		},
+		{
+			"alias":"name",
+			"table":"JournalCashflow",
+			"description":""
+		}	
+	],
+	"joins" : [
+		{
+			"left":"Journal",
+			"right":"JournalLine",
+			"on":"Journal.id = JournalLine.id"
+		},
+		{
+			"left":"JournalLine",
+			"right":"Account",
+			"on":"JournalLine.account = Account.id"
+		}		
+	]
+}
