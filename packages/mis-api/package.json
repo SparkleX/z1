@@ -1,0 +1,33 @@
+{
+  "name": "mis-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "serve": "",
+    "clean": "rimraf dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+	"core-repository": "0.0.2",
+	"body-parser": "^1.19.0",
+	"compression": "^1.7.4",
+	"express": "^4.17.1",
+	"http-proxy-middleware": "^0.20.0",
+	"inversify": "^5.0.1",
+	"inversify-express-utils": "^6.3.2",
+	"core-repository-crud": "0.0.3",
+	"morgan": "^1.9.1",
+	"reflect-metadata": "^0.1.13",
+	"typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.1",
+    "@types/compression": "^1.0.1",
+    "@types/morgan": "^1.7.37",
+    "rimraf": "^3.0.0"
+  }
+}
