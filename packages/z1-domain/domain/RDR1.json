@@ -1,0 +1,19 @@
+{
+	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
+	"name":"RDR1",	
+	"description":"Sales Order Details",
+	"columns": [
+		{
+			"name":"DocEntry",
+			"type":"number"
+		},
+		{
+			"name":"LineNum",
+			"type":"number"
+		},
+		{
+			"name":"LineTotal",
+			"type": "decimal"
+		}
+	]
+}

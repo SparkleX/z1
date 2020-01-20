@@ -1,18 +1,18 @@
 {
 	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
-	"name":"Item",	
-	"description":"Item Master Data",
+	"name":"OCRD",	
+	"description":"BusinessPartner",
 	"columns": [
 		{
-			"name":"id",
+			"name":"CardCode",
 			"type":"string"
 		},
 		{
-			"name":"ItemCode",
+			"name":"CardName",
 			"type":"string"
 		},
 		{
-			"name":"ItemName",
+			"name":"CardType",
 			"type": "string"
 		}
 	]

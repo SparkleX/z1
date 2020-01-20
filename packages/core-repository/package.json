@@ -4,12 +4,9 @@
 	"description": "Repository Pattern for Type Script",
 	"main": "dist/index.js",
 	"scripts": {
-		"all": "run-s build cover",
-		"prebuild": "npm run clean",
 		"build": "tsc",
 		"clean": "rimraf dist",
-		"test": "mocha -r ts-node/register test/**/*Test.ts",
-		"cover": "nyc --reporter=lcov --reporter=text-summary mocha -r ts-node/register test/**/*Test.ts"
+		"test": "mocha -r ts-node/register test/**/*Test.ts"
 	},
 	"author": "Sun, Xufei",
 	"license": "MIT",

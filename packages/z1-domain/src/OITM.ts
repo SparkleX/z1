@@ -1,5 +1,4 @@
-export class Item {
-	public id:String;
+export class OITM {
 	public ItemCode:String;
 	public ItemName:String;
 }

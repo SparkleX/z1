@@ -1,0 +1,15 @@
+{
+	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
+	"name":"OITM",	
+	"description":"Item Master Data",
+	"columns": [
+		{
+			"name":"ItemCode",
+			"type":"string"
+		},
+		{
+			"name":"ItemName",
+			"type":"string"
+		}
+	]
+}
