@@ -1,6 +1,6 @@
 {
   "name": "db-conn",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Database Abstract Layer",
   "main": "dist/index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^24.9.0",
+    "@types/node": "^13.1.8",
     "jest": "^24.9.0",
     "ts-jest": "^24.3.0",
     "typescript": "^3.6.4"
