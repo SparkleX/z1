@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
 	props: { 
 		label: { type:String },
@@ -64,8 +66,16 @@ export default {
 		onPressAdd: function () {
 
 		},
-		onPressRemove: function () {
-			
+		onPressRemove: async function () {
+			var id = this.$route.params.id;
+			const res = await this.$dialog.confirm({
+			text: 'Confirm to delete',
+			title: 'Warning'
+			});
+			if(res) {
+				await axios.delete(`/api/OITM/${id}`);
+				this.$router.push({ path: `/${this.$parent.$data.$$object}/`});
+			}
 		},
 		onPressBack: function () {
 

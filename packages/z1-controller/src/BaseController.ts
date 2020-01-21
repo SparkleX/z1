@@ -1,7 +1,8 @@
-import {controller, httpGet, httpPut, httpPost, httpDelete, requestParam} from "inversify-express-utils";
+import {controller, httpGet, httpPut, httpPost, httpDelete, requestParam, request} from "inversify-express-utils";
 import { BaseService } from "z1-service/dist/BaseService";
 import { injectable } from "inversify";
 import { Container } from "inversify";
+import * as express from "express"
 
 @injectable()
 export class BaseController<
@@ -30,17 +31,17 @@ export class BaseController<
         return await this.service.getById(id);
     }
     @httpPost("/")
-    public async create(data:T): Promise<any> {
-        return await this.service.create(data);
+    public async create(@request() req:express.Request): Promise<any> {
+        return await this.service.create(req.body);
 
     }
     @httpPut("/:id")
-    public async update(id:ID, data:T): Promise<any> {
-        return await this.service.update(id, data);
+    public async update(@requestParam("id")id:ID, @request() req:express.Request): Promise<any> {
+        return await this.service.update(id, req.body);
 
     }
     @httpDelete("/:id")
-    public async delete(id:ID): Promise<any> {
+    public async delete(@requestParam("id") id:ID): Promise<any> {
         return await this.service.delete(id);
     }
 }
