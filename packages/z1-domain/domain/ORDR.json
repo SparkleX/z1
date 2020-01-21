@@ -1,14 +1,14 @@
 {
 	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
-	"name":"SalesOrder",	
+	"name":"ORDR",	
 	"description":"Sales Order",
 	"columns": [
 		{
-			"name":"id",
-			"type":"string"
+			"name":"DocEntry",
+			"type":"number"
 		},
 		{
-			"name":"bp",
+			"name":"CardCode",
 			"type":"string"
 		},
 		{
