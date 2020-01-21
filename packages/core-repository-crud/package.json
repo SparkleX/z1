@@ -25,7 +25,8 @@
 		"nyc": "^14.1.1",
 		"rimraf": "^3.0.0",
 		"ts-mockito": "^2.5.0",
-		"ts-node": "^8.4.1"
+		"ts-node": "^8.4.1",
+		"inversify": "^5.0.1"
 	},
 	"homepage": "https://github.com/SparkleX/core-repository-crud"
 }

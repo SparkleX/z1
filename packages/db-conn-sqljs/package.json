@@ -4,11 +4,8 @@
 	"description": "SQL.JS driver (db-conn)",
 	"main": "dist/index.js",
 	"scripts": {
-		"all": "run-s build cover",
-		"prebuild": "rimraf dist",
 		"build": "tsc",
-		"test": "mocha",
-		"cover": "nyc mocha"
+		"test": "mocha"
 	},
 	"author": "Sun, Xufei",
 	"license": "MIT",

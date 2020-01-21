@@ -1,6 +1,8 @@
 import { CrudRepositoryAdapter } from "./CrudRepositoryAdapter";
 import {RepositoryHandler} from "core-repository"
 
+import { injectable } from "inversify";
+@injectable()
 export class CrudRepository<T extends object,ID>{
 
 	protected adapter: CrudRepositoryAdapter;

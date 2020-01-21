@@ -5,7 +5,10 @@ import { OITMService } from "z1-service"
 import { OITM } from "z1-domain";
 
 
-@controller("/api")
+@controller("/api/OITM")
 export class OITMController extends BaseController<OITMService, OITM, String>{
-
+	@httpGet("/test")
+	public async test(): Promise<any> {
+		return [1];
+	}
 }

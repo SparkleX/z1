@@ -10,7 +10,8 @@
   "dependencies": {
 	  "z1-domain":"1.0.0",
 	  "core-repository":"1.0.0",
-	  "core-repository-crud":"1.0.0"
+	  "core-repository-crud":"1.0.0",
+	  "inversify": "^5.0.1"
   },
   "devDependencies": {
 	  "typescript": "^3.6.4"
