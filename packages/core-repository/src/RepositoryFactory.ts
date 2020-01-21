@@ -1,6 +1,6 @@
 import * as Query from "./Query"
 export interface RepositoryHandler {
-     execute(sql:string, ...params:any):Promise<any>;
+     execute(sql:string, params?:any[]):Promise<any>;
 }
 
 export class RepositoryFactory {

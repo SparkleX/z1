@@ -3,24 +3,20 @@
 	"version": "1.0.0",
 	"description": "SQL.JS driver (db-conn)",
 	"main": "dist/index.js",
-	"scripts": {
-		"build": "tsc",
-		"test": "jest"
-	},
 	"author": "Sun, Xufei",
 	"license": "MIT",
 	"dependencies": {
-		"db-conn": "1.0.0",
+		"db-conn":"1.0.0",
 		"sql.js": "^1.0.1"
 	},
 	"devDependencies": {
+		"@types/jest": "^24.9.0",
 		"@types/node": "^12.12.11",
 		"@types/sql.js": "^1.0.2",
-		"rimraf": "^3.0.0",
-		"typescript": "^3.6.4",
-		"@types/jest": "^24.9.0",
 		"jest": "^24.9.0",
-		"ts-jest": "^24.3.0"
+		"rimraf": "^3.0.0",
+		"ts-jest": "^24.3.0",
+		"typescript": "^3.6.4"
 	},
 	"homepage": "https://github.com/SparkleX/db-conn-sqljs"
 }

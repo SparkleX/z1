@@ -10,7 +10,7 @@ import { Connection } from 'db-conn';
 
 
 class RepoHandlerImpl implements RepositoryHandler {
-    async execute(sql: string, ...params: any): Promise<any> {
+    async execute(sql: string, params?: any[]): Promise<any> {
 		var conn:Connection = (global as any).conn;
 		return await conn.executeQuery(sql, params);
     }
