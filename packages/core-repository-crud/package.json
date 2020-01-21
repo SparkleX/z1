@@ -11,7 +11,8 @@
 	"author": "Sun, Xufei",
 	"license": "MIT",
 	"dependencies": {
-		"core-repository": "1.0.0"
+		"core-repository": "1.0.0",
+		"db-conn": "1.0.0"
 	},
 	"devDependencies": {
 		"typescript": "^3.6.4",

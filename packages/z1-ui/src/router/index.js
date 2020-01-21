@@ -17,28 +17,28 @@ const routes = [
 			import("@/views/About.vue")
 	},
 	{
-		path: "/SalesOrder",
+		path: "/ORDR",
 		name: "SalesOrder",
 		component: () =>
-			import("@/views/MkDoc/MkDocList.vue")
+			import("@/views/ORDR/MkDocList.vue")
 	},
 	{
-		path: "/Item",
+		path: "/OITM",
 		name: "ItemList",
 		component: () => 
-			import("@/views/Item/ItemList.vue")
+			import("@/views/OITM/OITMList.vue")
 	},
 	{
-		path: "/Item/:id",
+		path: "/OITM/:id",
 		name: "ItemDetail",
 		component: () => 
-			import("@/views/Item/ItemDetail.vue")
+			import("@/views/OITM/OITMDetail.vue")
 	},		
 	{
-		path: "/SalesOrder/:id",
+		path: "/ORDR/:id",
 		name: "SalesOrderDetail",
 		component: () =>
-			import("@/views/MkDoc/MkDocDetail.vue")
+			import("@/views/ORDR/MkDocDetail.vue")
 	},	
 ];
 

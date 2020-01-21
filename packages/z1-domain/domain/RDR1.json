@@ -2,6 +2,8 @@
 	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
 	"name":"RDR1",	
 	"description":"Sales Order Details",
+	"primaryKey": ["DocEntry","LineNum"],
+	
 	"columns": [
 		{
 			"name":"DocEntry",

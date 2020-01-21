@@ -72,7 +72,7 @@ export default {
 		}
 		else {
 			var id = this.$route.params.id;
-			var data = await axios.get(`/apis/data/Item/${id}.json`);
+			var data = await axios.get(`/api/OITM/${id}`);
 			this.data = data.data;
 		}
 	}

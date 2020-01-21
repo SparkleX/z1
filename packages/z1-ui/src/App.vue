@@ -59,7 +59,7 @@ export default {
 	},
 	async mounted () {
 		//axios.get('/apis/test.json').then(response => (this.menu = response.data));
-		var data = await axios.get('/apis/test.json');
+		var data = await axios.get('/api_temp/menu/menu.json');
 		this.menu = data.data;
 	}	
 }

@@ -3,9 +3,8 @@ import * as fs from "fs";
 
 export class Metadata {
 	public constructor() {
-		this.tables = [];
 	}
-	public tables:MdTable[];
+	public tables:{ [key:string]:MdTable; } = {}
 	public static async load(filename:string):Promise<MdTable> {
 		var contents = fs.readFileSync(filename).toString();
 		var table:MdTable = JSON.parse(contents);
@@ -17,8 +16,7 @@ export class Metadata {
 		var files:string[] = fs.readdirSync(foldername);
 		for (let file of files) {
 			var mdTable = await Metadata.load(foldername + file);
-			rt.tables.push(mdTable);
-
+			rt.tables[mdTable.name] = mdTable;
 		}
 		return rt;
 	}	

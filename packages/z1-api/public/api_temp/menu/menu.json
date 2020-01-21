@@ -1,0 +1,77 @@
+[
+	{
+		"name": "Administration",
+		"items": [
+			{
+				"icon": "mdi-home",
+				"label": "Home",
+				"link": "/"
+			},
+			{
+				"icon": "mdi-face",
+				"label": "Business Partner",
+				"link": "/"
+			},
+			{
+				"icon": "mdi-dns",
+				"label": "Items",
+				"link": "/OITM"
+			},
+			{
+				"icon": "mdi-format-indent-increase ",
+				"label": "Sales Order",
+				"link": "/ORDR"
+			}			
+		]
+	},
+	{
+		"name": "Sales - AR",
+		"items": [
+			{
+				"icon": "mdi-format-indent-increase ",
+				"label": "Sales Order",
+				"link": "/ORDR"
+			}
+		]
+	},
+	{
+		"name": "Financials"
+	},
+	{
+		"name": "CRM"
+	},
+	{
+		"name": "Opportunities"
+	},
+	{
+		"name": "Purchase - A/P"
+	},
+	{
+		"name": "Business Partners",
+		"items": [
+			{
+				"icon": "mdi-face",
+				"label": "Business Partner",
+				"link": "/OCRD"
+			}
+		]		
+	},
+	{
+		"name": "Banking"
+	}
+	,
+	{
+		"name": "Inventory",
+		"items": [
+			{
+				"icon": "mdi-dns",
+				"label": "Items",
+				"link": "/OITM"
+			}
+		]		
+	}
+	,
+	{
+		"name": "Service"
+	}	
+]

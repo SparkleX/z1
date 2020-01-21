@@ -42,11 +42,11 @@ export default {
 		}		
 	},
 	async mounted () {
-		var data = await axios.get(`/apis/view/${this.dataObject}.list.json`);
+		var data = await axios.get(`/api_temp/listView/${this.dataObject}.list.json`);
 		this.headers = data.data.columns;
 		this.itemKey = data.data.key;
 		this.title = data.data.title;
-		data = await axios.get(`/apis/data/${this.dataObject}List.json`);
+		data = await axios.get(`/api/${this.dataObject}/`);
 		this.data = data.data;
 	}		
 }

@@ -2,6 +2,7 @@
 	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
 	"name":"OCRD",	
 	"description":"BusinessPartner",
+	"primaryKey": ["CardCode"],
 	"columns": [
 		{
 			"name":"CardCode",

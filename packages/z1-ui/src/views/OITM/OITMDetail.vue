@@ -24,6 +24,7 @@ export default {
 	mixins: [BaseDetailView],
 	data: function() {
 		return {
+			$$object:"OITM",
 			dateFrom: "06/06/2020"	,
 			ItemCode :"1"		
 		}

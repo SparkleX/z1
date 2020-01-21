@@ -2,6 +2,7 @@
 	"$schema": "../node_modules/core-domain-builder/schema/domain.json",
 	"name":"ORDR",	
 	"description":"Sales Order",
+	"primaryKey": ["DocEntry"],
 	"columns": [
 		{
 			"name":"DocEntry",

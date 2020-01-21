@@ -25,7 +25,7 @@ export class CrudRepository<T extends object,ID>{
 		return list;
 	}
 	public async findById(id:ID):Promise<T> {
-		var columns:string[] = this.adapter.getIdColumns();
+		var columns:string[] = this.adapter.getIdColumns(this.table);
 		var condition = this.sqlKeys(columns);
 		var sql = `select * from ${this.q}${this.table}${this.q} where ${condition}`;
 		console.log(sql);
@@ -36,7 +36,7 @@ export class CrudRepository<T extends object,ID>{
 		return list[0];
 	}
 	public async deleteById(id:ID):Promise<void>{
-		var columns:string[] = this.adapter.getIdColumns();
+		var columns:string[] = this.adapter.getIdColumns(this.table);
 		var condition = this.sqlKeys(columns);
 		var sql = `delete from ${this.q}${this.table}${this.q} where ${condition}`;
 		console.log(sql);
@@ -79,7 +79,7 @@ export class CrudRepository<T extends object,ID>{
 		var columns:string[] = this.adapter.getColumns(this.TName, data);
 		var values = this.adapter.getValues(data, columns);
 		var sqlUpdate = this.sqlUpdate(columns);
-		var idColumns:string[] = this.adapter.getIdColumns();
+		var idColumns:string[] = this.adapter.getIdColumns(this.table);
 		var sqlWhere = this.sqlKeys(idColumns);
 		var sql = `update ${this.q}${this.table}${this.q} set ${sqlUpdate} where ${sqlWhere}`;
 		console.log(sql);

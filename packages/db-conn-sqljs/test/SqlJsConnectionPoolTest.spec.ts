@@ -1,11 +1,9 @@
 import {ConnectionPool, Connection} from "db-conn"
 import {SqlJsConnection, SqlJsConnectionPool, initSqlJs} from "../src/index"
 import {sqlTest} from "./TestCase"
-import {describe,it} from "mocha"
-import {expect} from 'chai'
 
-describe(__filename, () => {
-    it(__filename, async () => {
+
+test(__filename, async () => {
 		var SQL = await initSqlJs();
 		let pool:ConnectionPool = new SqlJsConnectionPool();
 		await pool.open(SQL);
@@ -18,4 +16,3 @@ describe(__filename, () => {
 		await conn1.close();
 		await pool.close();
     });
-});

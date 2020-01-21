@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<s-list-view dataObject="Item" ></s-list-view>
+		<s-list-view dataObject="OITM" ></s-list-view>
 	</div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 	mixins: [ListBase],
 	data () {
 		return {
-			$$object:"Item",
+			$$object:"OITM",
 			selected: [],
 			headers: [
 				{ text: 'Item Code',value: 'ItemCode' },
@@ -30,7 +30,7 @@ export default {
 	},
 	async mounted () {
 		//axios.get('/apis/test.json').then(response => (this.menu = response.data));
-		var data = await axios.get('/apis/data/ItemList.json');
+		var data = await axios.get('/api/OITM/');
 		this.data = data.data;
 	}		
 }

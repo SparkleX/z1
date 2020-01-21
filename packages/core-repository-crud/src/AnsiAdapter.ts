@@ -1,4 +1,5 @@
 import { CrudRepositoryAdapter } from './CrudRepositoryAdapter';
+import {Metadata} from "db-conn"
 
 export class AnsiAdapter implements CrudRepositoryAdapter {
 	getColumns(TName: string, data:object): string[] {
@@ -8,8 +9,10 @@ export class AnsiAdapter implements CrudRepositoryAdapter {
 		}
 		return rt ;
 	}
-	getIdColumns(): string[] {
-		return ["id"];
+	getIdColumns(tableName:string): string[] {
+		var metadata:Metadata = global['metadata'];
+		var rt = metadata.tables[tableName].primaryKey;
+		return rt;
 	}
 	getQuote() {
 		return '"';

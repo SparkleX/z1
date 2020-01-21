@@ -14,12 +14,13 @@ import {
 import { container } from "./inversify.config"
 import "z1-controller"
 import {initDatabase} from "./initDatabase"
+import * as proxy from 'http-proxy-middleware';
 
 async function main() {
 	await initDatabase();
 	let server = new InversifyExpressServer(container);
 	server.setConfig(app => {
-		app.use(morgan("tiny"));
+		app.use(morgan("dev"));
 		app.use(compression());
 		app.use(express.static('public'));
 		app.use(
@@ -28,6 +29,7 @@ async function main() {
 			})
 		);
 		app.use(bodyParser.json());
+		app.use('/web', proxy({target: 'http://localhost:8080'}));
 	});
 	
 	let app = server.build();
