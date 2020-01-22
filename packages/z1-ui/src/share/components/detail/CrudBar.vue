@@ -10,7 +10,7 @@
 				<v-btn id="idRemove" small :hidden="!viewMode" v-on:click="onPressRemove" ><v-icon>mdi-delete-circle</v-icon></v-btn>
 				<v-btn id="idCancel" small :hidden="!editMode" v-on:click="onPressCancel" >Cancel</v-btn>
 				<v-btn small v-on:click="onPressBack"><v-icon>mdi-backspace</v-icon></v-btn>
-				<v-btn small :hidden="true" v-on:click="onPressTest">Test</v-btn>
+				<v-btn small :hidden="false" v-on:click="onPressTest">Test</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>	
 	</div>
@@ -92,7 +92,7 @@ export default {
 			this.$router.push({ path: `/${this.getTableName()}/`});
 		},
 		onPressTest: async function () {
-			//console.log(JSON.stringify(this.$parent.data));
+			console.log(JSON.stringify(this.$parent.data));
 			/*await this.$dialog.confirm({
   text: 'Do you really want to exit?',
   title: 'Warning'

@@ -3,4 +3,5 @@ export class OITM {
 	public ItemName:String;
 	public IsSales:String;
 	public IsStock:String;
+	public TaxLiable:String;
 }

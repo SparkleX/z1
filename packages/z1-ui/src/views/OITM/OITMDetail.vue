@@ -19,7 +19,6 @@
 						<v-card outlined>
 							<v-card-title v-text="'Item Type'"></v-card-title>
 							<v-card-text>
-								<v-select label="Item Type" ></v-select>
 								<s-checkbox label="Inventory Item" v-model="data.IsStock" dataBind="OITM.IsStock"></s-checkbox>
 								<s-checkbox label="Sales Item" v-model="data.IsSales" dataBind="OITM.IsSales" ></s-checkbox>
 								<s-checkbox label="Purchase Item" v-model="data.IsSales" dataBind="OITM.IsSales"></s-checkbox>
@@ -32,7 +31,7 @@
 						<v-card outlined>
 							<v-card-title v-text="'Accounting'"></v-card-title>
 							<v-card-text>
-								<v-checkbox label="Tax Liable"></v-checkbox>
+								<s-select label="Tax Liable" v-model="data.TaxLiable" dataBind="OITM.TaxLiable"></s-select>
 							</v-card-text>
 						</v-card>
 					</v-col>

@@ -41,6 +41,22 @@
 					"desc":"No"
 				}
 			]
+		},
+		{
+			"name":"TaxLiable",
+			"type":"string",
+			"default":"N",
+			"values": [
+				{
+					"value":"Y",
+					"desc":"Yes"
+				},
+				{
+					"value":"N",
+					"desc":"No"
+				}
+			]
 		}		
+				
 	]
 }

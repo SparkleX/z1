@@ -21,6 +21,10 @@ import CheckBox from "@/share/components/input/CheckBox"
 Vue.component('s-checkbox', CheckBox);
 Vue.use(CheckBox);
 
+import Select from "@/share/components/input/Select"
+Vue.component('s-select', Select);
+Vue.use(Select);
+
 import CrudBar from "@/share/components/detail/CrudBar"
 Vue.component('s-crud-bar', CrudBar);
 Vue.use(CrudBar);

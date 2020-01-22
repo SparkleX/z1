@@ -3,12 +3,14 @@
 		"ItemCode": "I001",
 		"ItemName": "Apple",
 		"IsSales" : "Y",
-		"IsStock" : "N"
+		"IsStock" : "N",
+		"TaxLiable":"Y"
 	},
 	{
 		"ItemCode": "I002",
 		"ItemName": "Orange",
 		"IsSales" : "N",
-		"IsStock" : "Y"
+		"IsStock" : "Y",
+		"TaxLiable":"Y"
 	}
 ]
