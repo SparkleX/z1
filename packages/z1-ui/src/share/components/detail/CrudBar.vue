@@ -9,7 +9,7 @@
 				<v-btn small :hidden="!addMode" color="primary" v-on:click="onPressAdd">Add</v-btn>
 				<v-btn id="idRemove" small :hidden="!viewMode" v-on:click="onPressRemove" ><v-icon>mdi-delete-circle</v-icon></v-btn>
 				<v-btn id="idCancel" small :hidden="!editMode" v-on:click="onPressCancel" >Cancel</v-btn>
-				<v-btn small :hidden="!addMode" v-on:click="onPressBack" >Back</v-btn>
+				<v-btn small v-on:click="onPressBack"><v-icon>mdi-backspace</v-icon></v-btn>
 				<v-btn small :hidden="true" v-on:click="onPressTest">Test</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>	
@@ -64,16 +64,18 @@ export default {
 
 		},
 		onPressAdd: async function () {
-			var tableName = this.getTableName();
-			var dataReturn = await NetUtil.create(tableName, this.$parent.data);
-			
-			var metaTable = await NetUtil.getTable(tableName);
-			var pkCol = metaTable.primaryKey[0];
-			var id = dataReturn[pkCol];
-			this.$router.push({ path: `/${this.getTableName()}/${id}`});	
-
-			this.$dialog.message.success('Operation Successful');
-			this.$parent.formMode = "viewMode";
+			try {
+				var tableName = this.getTableName();
+				var dataReturn = await NetUtil.create(tableName, this.$parent.data);
+				var metaTable = await NetUtil.getTable(tableName);
+				var pkCol = metaTable.primaryKey[0];
+				var id = dataReturn[pkCol];
+				this.$router.push({ path: `/${this.getTableName()}/${id}`});	
+				this.$dialog.message.success('Operation Successful');
+				this.$parent.formMode = "viewMode";
+			}catch(error) {
+				this.$dialog.message.error(error.message);
+			}
 		},
 		onPressRemove: async function () {
 			var id = this.$route.params.id;

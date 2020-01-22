@@ -18,8 +18,12 @@ export class BaseService <TRepository extends CrudRepository<T,ID>, T extends ob
     }
     public async getById(id:ID):Promise<T> {
         return await this.repository.findById(id);
-    }
+	}
+	public async onIsValid(data:T):Promise<void> {
+
+	}
     public async create(data:T):Promise<T> {
+		await this.onIsValid(data);
 		await this.repository.insert(data);
 		return data;
     }

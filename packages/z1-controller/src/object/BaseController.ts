@@ -34,8 +34,12 @@ export class BaseController<
     }
     @httpPost("/")
     public async create(@request() req:Request, @response() res: Response): Promise<void> {
-		var data = await this.service.create(req.body);
-		res.status(201).json(data);
+		try {
+			var data = await this.service.create(req.body);
+			res.status(201).json(data);
+		}catch(e) {
+			res.status(500).json(e.message);
+		}
     }
     @httpPut("/:id")
     public async update(@requestParam("id") id:ID, @request() req:Request, @response() res: Response): Promise<void> {
@@ -43,7 +47,7 @@ export class BaseController<
 		res.status(204).end();		 
     }
     @httpDelete("/:id")
-    public async delete(@requestParam("id") id:ID, @request() res: Response): Promise<void> {
+    public async delete(@requestParam("id") id:ID, @response() res: Response): Promise<void> {
 		await this.service.delete(id);
 		res.status(204).end();
     }
