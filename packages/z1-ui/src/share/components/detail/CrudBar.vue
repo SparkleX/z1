@@ -5,24 +5,13 @@
 			<v-spacer></v-spacer>
 			<v-toolbar-items>
 				<v-btn id="idEdit" small :hidden="!viewMode" color="primary" v-on:click="onPressEdit">Edit</v-btn>
-				<v-btn id="idSave" small :hidden="viewMode" color="primary" v-on:click="onPressSave">Save</v-btn>
+				<v-btn id="idSave" small :hidden="!editMode" color="primary" v-on:click="onPressSave">Save</v-btn>
+				<v-btn small :hidden="!addMode" color="primary" v-on:click="onPressAdd">Add</v-btn>
 				<v-btn id="idRemove" small :hidden="!viewMode" v-on:click="onPressRemove" ><v-icon>mdi-delete-circle</v-icon></v-btn>
 				<v-btn id="idCancel" small :hidden="!editMode" v-on:click="onPressCancel" >Cancel</v-btn>
 				<v-btn small :hidden="!addMode" v-on:click="onPressBack" >Back</v-btn>
-				<v-btn small v-on:click="onPressTest">Test</v-btn>
-
+				<v-btn small :hidden="true" v-on:click="onPressTest">Test</v-btn>
 			</v-toolbar-items>
-			<!--  <template v-if="$vuetify.breakpoint.smAndUp">
-			<v-btn icon>
-			<v-icon>mdi-export-variant</v-icon>
-			</v-btn>
-			<v-btn icon>
-			<v-icon>mdi-delete-circle</v-icon>
-			</v-btn>
-			<v-btn icon>
-			<v-icon>mdi-plus-circle</v-icon>
-			</v-btn>
-			</template>-->
 		</v-toolbar>	
 	</div>
 </template>
@@ -47,6 +36,12 @@ export default {
 		}
 	},	
 	methods: {
+		getParentView : function() {
+			return this.$parent;
+		},
+		getTableName : function() {
+			return this.$parent.$data.$$object;
+		},
 		onPressEdit : function () {
 			this.$parent.formMode = "editMode";
 			//this.$emit('setFormMode',"editMode");
@@ -56,15 +51,22 @@ export default {
 			//this.$parent.onPressCancel(evt);
 			//this.$emit('setFormMode',"viewMode");
 		},
-		onPressSave: function () {
-			console.log(JSON.stringify(this.$parent.data));
+		onPressSave: async function () {
+			//console.log(JSON.stringify(this.$parent.data));
+			var id = this.$route.params.id;
+			await axios.put(`/api/${this.getTableName()}/${id}`, this.$parent.data);
+			this.$router.push({ path: `/${this.$parent.$data.$$object}/`});			
+
 			//Post
 			this.$dialog.message.success('Saved');
 			this.$parent.formMode = "viewMode";
 
 		},
-		onPressAdd: function () {
-
+		onPressAdd: async function () {
+			await axios.post(`/api/${this.getTableName()}`, this.$parent.data);
+			this.$router.push({ path: `/${this.getTableName()}/`});			
+			this.$dialog.message.success('Saved');
+			this.$parent.formMode = "viewMode";
 		},
 		onPressRemove: async function () {
 			var id = this.$route.params.id;
@@ -73,12 +75,12 @@ export default {
 			title: 'Warning'
 			});
 			if(res) {
-				await axios.delete(`/api/OITM/${id}`);
-				this.$router.push({ path: `/${this.$parent.$data.$$object}/`});
+				await axios.delete(`/api/${this.getTableName()}/${id}`);
+				this.$router.push({ path: `/${this.getTableName()}/`});
 			}
 		},
 		onPressBack: function () {
-
+			this.$router.push({ path: `/${this.getTableName()}/`});
 		},
 		onPressTest: async function () {
 			//console.log(JSON.stringify(this.$parent.data));
