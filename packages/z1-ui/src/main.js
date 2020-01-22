@@ -17,6 +17,10 @@ import LinkedInput from "@/share/components/input/LinkedInput"
 Vue.component('s-linked-input', LinkedInput);
 Vue.use(LinkedInput);
 
+import CheckBox from "@/share/components/input/CheckBox"
+Vue.component('s-checkbox', CheckBox);
+Vue.use(CheckBox);
+
 import CrudBar from "@/share/components/detail/CrudBar"
 Vue.component('s-crud-bar', CrudBar);
 Vue.use(CrudBar);

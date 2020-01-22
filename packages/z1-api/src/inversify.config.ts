@@ -4,7 +4,7 @@ import {OCRDService,OITMService, ORDRService} from "z1-service"
 import { OITMRepository, OCRDRepository, ORDRRepository } from "z1-repository";
 import { RepositoryFactory, RepositoryHandler } from "core-repository";
 import { AnsiAdapter, CrudRepositoryAdapter } from "core-repository-crud";
-import { OITM } from "z1-domain";
+import { OITM,OCRD,ORDR } from "z1-domain";
 import { Connection } from 'db-conn';
 
 
@@ -28,7 +28,6 @@ container.bind<ORDRService>(Types.ORDRService).to(ORDRService);
 
 container.bind<OITMRepository>(Types.OITMRepository).to(OITMRepository).onActivation( 
     (context, repo) => {
-	   // var proxyRepo = RepositoryFactory.newRepository(OITMRepository, repoHandlerImpl);
 	   var repoStudent:OITMRepository = new OITMRepository();
 	   repoStudent.postConstruct(repoHandlerImpl, adapter, OITM);
         return repoStudent;
@@ -37,15 +36,17 @@ container.bind<OITMRepository>(Types.OITMRepository).to(OITMRepository).onActiva
 
 container.bind<OCRDRepository>(Types.OCRDRepository).to(OCRDRepository).onActivation( 
     (context, repo) => {
-        var proxyRepo = RepositoryFactory.newRepository(OCRDRepository, repoHandlerImpl);
-        return proxyRepo;
+		var repoStudent:OCRDRepository = new OCRDRepository();
+		repoStudent.postConstruct(repoHandlerImpl, adapter, OCRD);        
+		return repoStudent;
     }
 );
 
 container.bind<ORDRRepository>(Types.ORDRRepository).to(ORDRRepository).onActivation( 
     (context, repo) => {
-        var proxyRepo = RepositoryFactory.newRepository(ORDRRepository, repoHandlerImpl);
-        return proxyRepo;
+		var repoStudent:ORDRRepository = new ORDRRepository();
+		repoStudent.postConstruct(repoHandlerImpl, adapter, ORDR);        
+		return repoStudent;
     }
 );
 

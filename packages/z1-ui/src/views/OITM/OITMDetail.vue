@@ -20,9 +20,9 @@
 							<v-card-title v-text="'Item Type'"></v-card-title>
 							<v-card-text>
 								<v-select label="Item Type" ></v-select>
-								<v-checkbox label="Inventory Item"></v-checkbox>
-								<v-checkbox label="Sales Item"></v-checkbox>
-								<v-checkbox label="Purchase Item"></v-checkbox>
+								<s-checkbox label="Inventory Item" v-model="data.IsStock" dataBind="OITM.IsStock"></s-checkbox>
+								<s-checkbox label="Sales Item" v-model="data.IsSales" dataBind="OITM.IsSales" ></s-checkbox>
+								<s-checkbox label="Purchase Item" v-model="data.IsSales" dataBind="OITM.IsSales"></s-checkbox>
 							</v-card-text>
 						</v-card>
 					</v-col>

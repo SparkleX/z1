@@ -1,10 +1,14 @@
 [
 	{
 		"ItemCode": "I001",
-		"ItemName": "Apple"
+		"ItemName": "Apple",
+		"IsSales" : "Y",
+		"IsStock" : "N"
 	},
 	{
 		"ItemCode": "I002",
-		"ItemName": "Orange"
+		"ItemName": "Orange",
+		"IsSales" : "N",
+		"IsStock" : "Y"
 	}
 ]

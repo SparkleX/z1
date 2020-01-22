@@ -11,6 +11,36 @@
 		{
 			"name":"ItemName",
 			"type":"string"
-		}
+		},
+		{
+			"name":"IsSales",
+			"type":"string",
+			"default":"N",
+			"values": [
+				{
+					"value":"Y",
+					"desc":"Yes"
+				},
+				{
+					"value":"N",
+					"desc":"No"
+				}
+			]
+		},
+		{
+			"name":"IsStock",
+			"type":"string",
+			"default":"N",
+			"values": [
+				{
+					"value":"Y",
+					"desc":"Yes"
+				},
+				{
+					"value":"N",
+					"desc":"No"
+				}
+			]
+		}		
 	]
 }
