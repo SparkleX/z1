@@ -18,6 +18,7 @@
 
 <script>
 import axios from "axios";
+import {NetUtil} from "@/share/components/net/NetUtil"
 
 export default {
 	props: { 
@@ -63,9 +64,15 @@ export default {
 
 		},
 		onPressAdd: async function () {
-			await axios.post(`/api/${this.getTableName()}`, this.$parent.data);
-			this.$router.push({ path: `/${this.getTableName()}/`});			
-			this.$dialog.message.success('Saved');
+			var tableName = this.getTableName();
+			var dataReturn = await NetUtil.create(tableName, this.$parent.data);
+			
+			var metaTable = await NetUtil.getTable(tableName);
+			var pkCol = metaTable.primaryKey[0];
+			var id = dataReturn[pkCol];
+			this.$router.push({ path: `/${this.getTableName()}/${id}`});	
+
+			this.$dialog.message.success('Operation Successful');
 			this.$parent.formMode = "viewMode";
 		},
 		onPressRemove: async function () {

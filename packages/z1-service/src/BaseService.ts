@@ -19,8 +19,9 @@ export class BaseService <TRepository extends CrudRepository<T,ID>, T extends ob
     public async getById(id:ID):Promise<T> {
         return await this.repository.findById(id);
     }
-    public async create(data:T):Promise<void> {
-        return this.repository.insert(data);
+    public async create(data:T):Promise<T> {
+		await this.repository.insert(data);
+		return data;
     }
     public async update(id:ID, o:T):Promise<void> {
         return await this.repository.updateById(id, o);

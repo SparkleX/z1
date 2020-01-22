@@ -5,7 +5,7 @@ import { ORDRService } from "z1-service"
 import { ORDR } from "z1-domain";
 
 
-@controller("/api")
+@controller("/api/ORDR")
 export class ORDRController extends BaseController<ORDRService, ORDR, Number>{
 
 }

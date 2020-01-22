@@ -12,7 +12,8 @@
     "core-repository": "1.0.0",
     "z1-repository": "1.0.0",
     "z1-service": "1.0.0",
-    "z1-domain": "1.0.0"
+	"z1-domain": "1.0.0",
+	"db-conn": "1.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
