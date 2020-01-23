@@ -1,0 +1,14 @@
+{
+	"title" : "Sales Orders",
+	"key": "DocEntry",
+	"columns": [
+		{
+			"text": "Document Entry",
+			"value": "DocEntry"
+		},
+		{
+			"text": "Business Partners",
+			"value": "CardCode"
+		}
+	]
+}

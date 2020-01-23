@@ -14,7 +14,16 @@
 		},
 		{
 			"name":"CardType",
-			"type": "string"
-		}
+			"type": "string",
+			"values": [
+				{ "value":"C", "desc":"Customer"},
+				{ "value":"S", "desc":"Vendor"},
+				{ "value":"L", "desc":"Leads"}
+			]
+		},
+		{
+			"name":"Balance",
+			"type": "decimal"
+		}		
 	]
 }

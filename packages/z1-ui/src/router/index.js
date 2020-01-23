@@ -18,10 +18,16 @@ const routes = [
 	},
 	{
 		path: "/ORDR",
-		name: "SalesOrder",
+		name: "ORDRList",
 		component: () =>
-			import("@/views/ORDR/MkDocList.vue")
+			import("@/views/ORDR/ORDRList.vue")
 	},
+	{
+		path: "/ORDR/:id",
+		name: "ORDRDetail",
+		component: () =>
+			import("@/views/ORDR/ORDRDetail.vue")
+	},		
 	{
 		path: "/OITM",
 		name: "ItemList",
@@ -35,11 +41,17 @@ const routes = [
 			import("@/views/OITM/OITMDetail.vue")
 	},		
 	{
-		path: "/ORDR/:id",
-		name: "SalesOrderDetail",
-		component: () =>
-			import("@/views/ORDR/MkDocDetail.vue")
-	},	
+		path: "/OCRD",
+		name: "OCRDList",
+		component: () => 
+			import("@/views/OCRD/OCRDList.vue")
+	},
+	{
+		path: "/OCRD/:id",
+		name: "OCRDDetail",
+		component: () => 
+			import("@/views/OCRD/OCRDDetail.vue")
+	},
 ];
 
 const router = new VueRouter({

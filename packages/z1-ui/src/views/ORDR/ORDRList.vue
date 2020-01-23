@@ -1,12 +1,11 @@
 <template>
 	<div>
-		<s-list-view dataObject="OITM" ></s-list-view>
+		<s-list-view dataObject="ORDR" ></s-list-view>
 	</div>
 </template>
 
 <script>
 export default {
-//	mixins: [ListBase],
 	
 }
 </script>

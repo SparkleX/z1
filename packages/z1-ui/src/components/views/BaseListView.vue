@@ -1,5 +1,5 @@
 <script>
-export default {
+/*export default {
 	methods: {
 		onRowClick : function (event) {
 			//alert(evt);
@@ -7,5 +7,5 @@ export default {
 			this.$router.push({ path: `/${this.$data.$$object}/${id}`});
 		}
 	}
-}
+}*/
 </script>

@@ -1,0 +1,14 @@
+[
+	{
+		"CardCode": "C001",
+		"CardName": "Intel",
+		"CardType" :"C",
+		"Balance" : 100.00
+	},
+	{
+		"CardCode": "C002",
+		"CardName": "Microsoft",
+		"CardType" :"S",
+		"Balance" : 200.20
+	}
+]

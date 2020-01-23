@@ -1,0 +1,18 @@
+{
+	"title" : "Business Partners",
+	"key": "CardCode",
+	"columns": [
+		{
+			"text": "BP Code",
+			"value": "CardCode"
+		},
+		{
+			"text": "BP Name",
+			"value": "CardName"
+		},
+		{
+			"text": "Balance",
+			"value": "Balance"
+		}
+	]
+}

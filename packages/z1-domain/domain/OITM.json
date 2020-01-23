@@ -56,6 +56,10 @@
 				{
 					"value":"N",
 					"desc":"No"
+				},
+				{
+					"value":"U",
+					"desc":"NA"
 				}
 			]
 		}		
