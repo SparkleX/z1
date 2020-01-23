@@ -25,6 +25,14 @@ class MetadataUtil {
 		var column = ar[1];
 		return this.tables[table].columnsMap[column];
 	}	
+	getDecimalPlace(tableDotCol) {
+		var metaCol = this.getColumn(tableDotCol);
+		switch(metaCol){
+		case "price":
+			return 1;
+		}
+		return 2;
+	}	
 	async test() {
 		alert("test");
 	}

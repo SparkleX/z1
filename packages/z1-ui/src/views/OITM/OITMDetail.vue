@@ -8,10 +8,10 @@
 						<v-card outlined>
 							<v-card-title v-text="'Basic Information'"></v-card-title>
 							<v-card-text>
-								<s-linked-input label="Item No" v-model="data.ItemCode" dataBind="OITM.ItemCode"></s-linked-input>
-								<s-linked-input label="Description" v-model="data.ItemName" dataBind="OITM.ItemName"></s-linked-input>
-								<v-select label="Item Group" v-model="data.ItemCode" dataBind="OITM.ItemCode"></v-select>
-								<v-select label="UoM Group" v-model="data.ItemCode" dataBind="OITM.ItemCode"></v-select>
+								<s-linked-input label="Item No" v-model="d.ItemCode" dataBind="OITM.ItemCode"></s-linked-input>
+								<s-linked-input label="Description" v-model="d.ItemName" dataBind="OITM.ItemName"></s-linked-input>
+								<v-select label="Item Group" v-model="d.ItemCode" dataBind="OITM.ItemCode"></v-select>
+								<v-select label="UoM Group" v-model="d.ItemCode" dataBind="OITM.ItemCode"></v-select>
 							</v-card-text>
 						</v-card>
 					</v-col>
@@ -19,9 +19,9 @@
 						<v-card outlined>
 							<v-card-title v-text="'Item Type'"></v-card-title>
 							<v-card-text>
-								<s-checkbox label="Inventory Item" v-model="data.IsStock" dataBind="OITM.IsStock"></s-checkbox>
-								<s-checkbox label="Sales Item" v-model="data.IsSales" dataBind="OITM.IsSales" ></s-checkbox>
-								<s-checkbox label="Purchase Item" v-model="data.IsSales" dataBind="OITM.IsSales"></s-checkbox>
+								<s-checkbox label="Inventory Item" v-model="d.IsStock" dataBind="OITM.IsStock"></s-checkbox>
+								<s-checkbox label="Sales Item" v-model="d.IsSales" dataBind="OITM.IsSales" ></s-checkbox>
+								<s-checkbox label="Purchase Item" v-model="d.IsSales" dataBind="OITM.IsSales"></s-checkbox>
 							</v-card-text>
 						</v-card>
 					</v-col>
@@ -31,7 +31,7 @@
 						<v-card outlined>
 							<v-card-title v-text="'Accounting'"></v-card-title>
 							<v-card-text>
-								<s-select label="Tax Liable" v-model="data.TaxLiable" dataBind="OITM.TaxLiable"></s-select>
+								<s-select label="Tax Liable" v-model="d.TaxLiable" dataBind="OITM.TaxLiable"></s-select>
 							</v-card-text>
 						</v-card>
 					</v-col>
@@ -84,16 +84,10 @@ export default {
 	mixins: [BaseDetailView],
 	data: function() {
 		return {
-			$$object:"OITM",
-			dateFrom: "06/06/2020"	,
-			ItemCode :"1"		
+			$$object:"OITM"	
 		}
 	},
 	methods: {
-		onPressTest : function () {
-			alert(this.$route.params.id);
-			//this.$emit('input', event);
-		},
 		onPressSave : function () {
 			alert('Save2');
 			BaseDetailView.methods.onPressSave();

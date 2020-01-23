@@ -42,7 +42,11 @@
 				"values" :{
 					"$ref": "#/definitions/validValues"
 				},
-				"editSize" :{"type": "number"}
+				"editSize" :{"type": "number"},
+				"editType": {
+					"type": "string",
+					"enum": ["amount", "price", "quantity","measure"]
+				}			
 			},
 			"additionalProperties": false
 		},

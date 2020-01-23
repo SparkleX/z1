@@ -11,6 +11,11 @@ import DateInput from "@/components/input/DateInput"
 Vue.component('s-date-input', DateInput);
 Vue.use(DateInput);
 
+
+import FormatInput from "@/components/input/FormatInput"
+Vue.component('s-format-input', FormatInput);
+Vue.use(FormatInput);
+
 import LinkedInput from "@/components/input/LinkedInput"
 Vue.component('s-linked-input', LinkedInput);
 Vue.use(LinkedInput);

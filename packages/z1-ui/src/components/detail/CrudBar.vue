@@ -55,7 +55,7 @@ export default {
 		onPressSave: async function () {
 			//console.log(JSON.stringify(this.$parent.data));
 			var id = this.$route.params.id;
-			await axios.put(`/api/${this.getTableName()}/${id}`, this.$parent.data);
+			await axios.put(`/api/${this.getTableName()}/${id}`, this.$parent.d);
 			this.$router.push({ path: `/${this.$parent.$data.$$object}/`});			
 
 			//Post
@@ -66,7 +66,7 @@ export default {
 		onPressAdd: async function () {
 			try {
 				var tableName = this.getTableName();
-				var dataReturn = await NetUtil.create(tableName, this.$parent.data);
+				var dataReturn = await NetUtil.create(tableName, this.$parent.d);
 				var metaTable = await NetUtil.getTable(tableName);
 				var pkCol = metaTable.primaryKey[0];
 				var id = dataReturn[pkCol];
@@ -93,7 +93,7 @@ export default {
 		},
 		onPressTest: async function () {
 			this.$metadata.test();
-			console.log(JSON.stringify(this.$parent.data));
+			console.log(JSON.stringify(this.$parent.d));
 			/*await this.$dialog.confirm({
   text: 'Do you really want to exit?',
   title: 'Warning'

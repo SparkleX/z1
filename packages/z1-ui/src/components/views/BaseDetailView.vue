@@ -1,14 +1,6 @@
-<!--<template>
-	<div>
-		<v-btn small color="error" v-on:click="onPressSave" >Save</v-btn>
-		<v-btn small color="error" v-on:click="onPressRemove" >Remove</v-btn>
-		<slot></slot>
-	</div>
-</template>-->
-
 <script>
 import axios from "axios";
-import * as ViewUtil from "./ViewUtil"
+//import * as ViewUtil from "./ViewUtil"
 
 export default {
 	props: { 
@@ -17,7 +9,7 @@ export default {
 		return {
 			viewType: "detail",
 			formMode: "viewMode",
-			data : {}
+			d : {}
 		}
 	},
 	computed: {
@@ -35,33 +27,6 @@ export default {
 		}
 	},
 	methods: {
-		onPressSave : function () {
-			alert('Save');
-		},
-		onPressRemove : function () {
-			alert('Remove');
-		},
-		onPressEdit : function (evt) {
-			if(this.formMode==="viewMode") {
-				ViewUtil.setEditable(this, true);
-				this.formMode = "editMode";
-				evt.currentTarget.hidden=true;
-				document.getElementById("idSave").hidden = false;
-				document.getElementById("idRemove").hidden = true;
-				document.getElementById("idCancel").hidden=false;
-
-			}			
-		},
-		onPressCancel : function () {
-			if(this.formMode==="editMode") {
-				ViewUtil.setEditable(this, false);
-				this.formMode = "viewMode";
-				document.getElementById("idSave").hidden = true;
-				document.getElementById("idRemove").hidden = false;
-				document.getElementById("idCancel").hidden=true;
-				document.getElementById("idEdit").hidden=false;
-			}			
-		},
 		setFormMode : function (val) {
 			this.formMode = val;
 		}
@@ -72,8 +37,8 @@ export default {
 		}
 		else {
 			var id = this.$route.params.id;
-			var data = await axios.get(`/api/OITM/${id}`);
-			this.data = data.data;
+			var data = await axios.get(`/api/${this.$data.$$object}/${id}`);
+			this.d = data.data;
 		}
 	}
 
