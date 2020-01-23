@@ -8,6 +8,7 @@
 						<v-card outlined>
 							<v-card-title v-text="'Basic Information'"></v-card-title>
 							<v-card-text>
+								<s-select label="Type" v-model="d.CardType" dataBind="OCRD.CardType"></s-select>
 								<s-linked-input label="BP Code" v-model="d.CardCode" dataBind="OCRD.CardCode"></s-linked-input>
 								<s-linked-input label="Description" v-model="d.CardName" dataBind="OCRD.CardName"></s-linked-input>
 								<s-format-input label="Balance" v-model="d.Balance" dataBind="OCRD.Balance"></s-format-input>
