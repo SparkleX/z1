@@ -44,7 +44,7 @@
 	</div>
 </template>
 <script>
-import BaseDetailView from "@/share/views/BaseDetailView.vue"
+import BaseDetailView from "@/components/views/BaseDetailView.vue"
 
 
 export default {

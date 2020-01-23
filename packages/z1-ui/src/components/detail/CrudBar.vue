@@ -18,7 +18,7 @@
 
 <script>
 import axios from "axios";
-import {NetUtil} from "@/share/components/net/NetUtil"
+import {NetUtil} from "@/components/net/NetUtil"
 
 export default {
 	props: { 
@@ -92,6 +92,7 @@ export default {
 			this.$router.push({ path: `/${this.getTableName()}/`});
 		},
 		onPressTest: async function () {
+			this.$metadata.test();
 			console.log(JSON.stringify(this.$parent.data));
 			/*await this.$dialog.confirm({
   text: 'Do you really want to exit?',

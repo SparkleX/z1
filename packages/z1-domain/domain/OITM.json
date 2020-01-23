@@ -6,11 +6,13 @@
 	"columns": [
 		{
 			"name":"ItemCode",
-			"type":"string"
+			"type":"string",
+			"editSize":8
 		},
 		{
 			"name":"ItemName",
-			"type":"string"
+			"type":"string",
+			"editSize":10
 		},
 		{
 			"name":"IsSales",

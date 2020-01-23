@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import * as ViewUtil from "@/share/views/ViewUtil"
+import * as ViewUtil from "../views/ViewUtil"
 
 export default {
 	props: { 

@@ -37,10 +37,12 @@
 					"type": "string",
 					"enum": ["string", "number", "decimal","date"]
 				},
+				"length" :{"type": "number"},
 				"default":{"type": "string"},
 				"values" :{
 					"$ref": "#/definitions/validValues"
-				}
+				},
+				"editSize" :{"type": "number"}
 			},
 			"additionalProperties": false
 		},

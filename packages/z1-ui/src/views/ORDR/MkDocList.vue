@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import ListBase from "@/share/views/BaseListView.vue"
+import ListBase from "@/components/views/BaseListView.vue"
 
 export default {
 	mixins: [ListBase],
