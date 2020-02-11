@@ -24,12 +24,12 @@
     "inversify-express-utils": "^6.3.2",
     "morgan": "^1.9.1",
     "reflect-metadata": "^0.1.13",
-	"z1-repository": "1.0.0",
-	"z1-controller": "1.0.0",
-	"z1-service": "1.0.0",
-	"z1-domain": "1.0.0",
-	"db-conn": "1.0.0",
-	"db-conn-sqljs": "1.0.0"
+    "z1-repository": "1.0.0",
+    "z1-controller": "1.0.0",
+    "z1-service": "1.0.0",
+    "z1-domain": "1.0.0",
+    "db-conn": "1.0.0",
+    "db-conn-sqljs": "1.0.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.0",

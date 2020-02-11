@@ -5,7 +5,14 @@
 	"main": "dist/index.js",
 	"author": "Sun, Xufei",
 	"license": "MIT",
-	"dependencies": {
+	"scripts": {
+		"all": "run-s build cover",
+		"build": "tsc",
+		"clean": "rimraf dist",
+		"test": "mocha",
+		"cover": "nyc mocha"
+	},	
+	"dependencies": {		
 		"db-conn":"1.0.0",
 		"sql.js": "^1.0.1"
 	},
