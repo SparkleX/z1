@@ -10,10 +10,20 @@
 		},
 		{
 			"name":"CardCode",
-			"type":"string"
+			"type":"string",
+			"editSize": 64
 		},
 		{
-			"name":"docDueDate",
+			"name":"CardName",
+			"type":"string",
+			"editSize": 255
+		},	
+		{
+			"name":"DocDate",
+			"type": "date"
+		},		
+		{
+			"name":"DocDueDate",
 			"type": "date"
 		}
 	]

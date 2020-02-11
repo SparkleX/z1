@@ -1,0 +1,12 @@
+[
+	{
+		"DocEntry": 1,
+		"CardCode": "C001",
+		"CardName": "Intel"
+	},
+	{
+		"DocEntry": 2,
+		"CardCode": "C002",
+		"CardName": "Microsoft"
+	}
+]

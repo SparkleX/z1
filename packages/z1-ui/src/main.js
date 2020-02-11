@@ -6,6 +6,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+import TextInput from "@/components/input/TextInput"
+Vue.component('s-text-input', TextInput);
+Vue.use(TextInput);
 
 import DateInput from "@/components/input/DateInput"
 Vue.component('s-date-input', DateInput);
@@ -39,6 +42,10 @@ Vue.use(ListView);
 import BaseDetailView from "@/components/views/BaseDetailView.vue"
 Vue.component('base-detail-view', BaseDetailView);
 Vue.use(BaseDetailView);
+
+import DataTable from "@/components/table/DataTable.vue"
+Vue.component('s-data-table', DataTable);
+Vue.use(DataTable);
 
 import VuetifyDialog from 'vuetify-dialog'
 import 'vuetify-dialog/dist/vuetify-dialog.css'

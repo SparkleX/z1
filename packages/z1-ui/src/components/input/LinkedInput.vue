@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<v-text-field :label="label" :readonly="!dataEditable" :value="value" @input="onInput($event)" :counter="counter" :maxlength="editSize"></v-text-field>  
+		<!--<v-text-field :label="label" :readonly="!dataEditable" :value="value" @input="onInput($event)" :counter="counter" :maxlength="editSize"></v-text-field>  
+		-->
 		<v-autocomplete
 			:label="label"
 			:value="value"
@@ -9,7 +10,11 @@
             item-value="value"
 			@input="onInput($event)">
 			<template v-slot:item="data">
-				{{data.item.desc}}
+				<v-row>
+					<v-col >{{data.item.desc}}</v-col>
+					<v-col >{{data.item.desc}}</v-col>
+					<v-col >{{data.item.value}}</v-col>
+				</v-row>
 			</template>
 		</v-autocomplete>	
 	</div>
