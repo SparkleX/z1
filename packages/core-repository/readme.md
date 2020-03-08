@@ -1,32 +1,55 @@
 # Repository Pattern for Type Script
 
+## Change Log
+1. Allow define decorator by yourself
+2. Callback change to function
+
 ---
-Repository Declareation
+1. Declare Decorator 
 
 ```ts
-import {Query} from "core-repository";
-import {Order} from "./Order"
+import "reflect-metadata"
 
-export class OrderRepository{
-    @Query('select * from "order" where "id" = ?')
-    public async findById(id:Number):Promise<Order[]> {return null};
+export const MetadataKey = "Sql:repository";
+export function Sql(sql: string) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        Reflect.defineMetadata(MetadataKey, sql, target.__proto__, descriptor.value.name);
+    };
+}
+
+let sqlCallback: CallbackFunc = function(metadata: any, ...params:any[]):any {
+    // Will be executed when "Decorator" function called
+    return 1;
+}
+// Regist to Repository Manager
+RepoManager.regist(MetadataKey, sqlCallback);
+
+```
+
+
+---
+2. Declare Repository with @Sql
+
+```ts
+
+export class SampleRepository{
+    @Sql('select * from "order" where "id" = ?')
+	public async findById(id:Number):Promise<any> {return null};
 }
 ```
 
-Implement Handler
+3. Use repository
 
 ```ts
-class RepoHandlerImpl implements RepositoryHandler {
-    execute(sql: string, ...params: any): Promise<any> {
-        // Your real implementation
-    }
-}
+    var repository = RepositoryFactory.repoConstructor(null, SampleRepository);
+    var result = await repository.findById(1); // return 1
 ```
-
-Use repository
-
+4. Inversify integreation
 ```ts
-    var handlerInstance = new RepoHandlerImpl();
-    var orderRepository = RepositoryFactory.newRepository(OrderRepository, handlerInstance);
-    var result = await orderRepository.findById(1);
+
+@(fluentProvide(SampleRepository).inSingletonScope().onActivation(repoConstructor).done())
+export class SampleRepository{
+    @Sql('select * from "order" where "id" = ?')
+	public async findById(id:Number):Promise<any> {return null};
+}
 ```
