@@ -1,14 +1,17 @@
-import { CrudRepository } from "core-repository-crud";
-import { Container, injectable } from "inversify";
+import { SqlRepository } from "core-repository-crud";
+import { Container, injectable ,postConstruct } from "inversify";
+import * as repos from "z1-repository";
 
 @injectable()
-export class BaseService <TRepository extends CrudRepository<T,ID>, T extends object, ID> {
+export class BaseService <TRepository extends SqlRepository<T,ID>, T extends object, ID> {
 	repository:TRepository;
 
-	public constructor(){
+    @postConstruct()
+	public init(){
 		var container:Container = (global as any).container as Container;
         var repoName = this.getTableName() + "Repository";
-        this.repository = container.get<TRepository>(repoName);
+        var repoClass = (repos as any)[repoName]
+        this.repository = container.get<TRepository>(repoClass);
     }
     protected getTableName() {
         return this.constructor.name.substr(0,4);        
@@ -17,7 +20,7 @@ export class BaseService <TRepository extends CrudRepository<T,ID>, T extends ob
         return await this.repository.findAll();
     }
     public async getById(id:ID):Promise<T> {
-        return await this.repository.findById(id);
+        return await this.repository.findByKey(id);
 	}
 	public async onIsValid(data:T):Promise<void> {
 
@@ -28,10 +31,10 @@ export class BaseService <TRepository extends CrudRepository<T,ID>, T extends ob
 		return data;
     }
     public async update(id:ID, o:T):Promise<void> {
-        return await this.repository.updateById(id, o);
+        return await this.repository.updateByKey(id, o);
     }
 
     public async delete(id:ID):Promise<void> {
-        return await this.repository.deleteById(id);
+        return await this.repository.delete(id);
     }
 }

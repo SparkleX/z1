@@ -3,7 +3,7 @@ import {SampleRepository} from "./SampleRepository"
 import {MetadataKey} from "./Sql"
 
 const mockCallback = jest.fn();
-var orderRepository = repoConstructor(null, SampleRepository);
+var orderRepository = repoConstructor(null, new SampleRepository());
 /*.mockImplementation(() => {
     return 1;
 });*/

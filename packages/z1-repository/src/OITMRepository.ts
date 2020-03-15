@@ -1,8 +1,11 @@
-import {CrudRepository} from "core-repository-crud"
-import {OITM} from "z1-domain"
-import { injectable } from "inversify";
+import { OITM } from "z1-domain"
+import { repoConstructor } from "core-repository";
+import { fluentProvide } from "inversify-binding-decorators";
+import {SqlRepository} from "core-repository-crud"
 
-@injectable()
-export class OITMRepository extends CrudRepository<OITM, String>{
+@(fluentProvide(OITMRepository)
+.inSingletonScope()
+.onActivation(repoConstructor).done())
+export class OITMRepository extends SqlRepository<OITM,OITM>{
 
 }

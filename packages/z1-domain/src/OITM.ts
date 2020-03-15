@@ -1,7 +1,14 @@
-export class OITM {
-	public ItemCode:String;
-	public ItemName:String;
-	public IsSales:String;
-	public IsStock:String;
-	public TaxLiable:String;
+/* eslint-disable prettier/prettier */
+/* tslint:disable */
+/* Generated, DO NOT MODIFY BY HAND */
+
+/**
+ * Item Master Data
+ */
+export interface OITM {
+	ItemCode?: string;
+	ItemName?: string;
+	IsSales?: string;
+	IsStock?: string;
+	TaxLiable?: string;
 }

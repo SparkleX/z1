@@ -1,8 +1,11 @@
-import {CrudRepository} from "core-repository-crud"
+import { repoConstructor } from "core-repository"
+import {SqlRepository} from "core-repository-crud"
 import {OCRD} from "z1-domain"
-import { injectable } from "inversify";
+import { fluentProvide } from "inversify-binding-decorators";
 
-@injectable()
-export class OCRDRepository extends CrudRepository<OCRD, String>{
+@(fluentProvide(OCRDRepository)
+.inSingletonScope()
+.onActivation(repoConstructor).done())
+export class OCRDRepository extends SqlRepository<OCRD,OCRD>{
 
 }

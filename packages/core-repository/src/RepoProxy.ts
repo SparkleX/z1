@@ -1,4 +1,4 @@
-import {RepoManager, CallbackFunc} from "./RepoManager";
+import {RepoManager, CallbackFunc, CallbackFuncData} from "./RepoManager";
 import "reflect-metadata"
 
 export class RepoProxy implements ProxyHandler<any> {
@@ -12,10 +12,11 @@ export class RepoProxy implements ProxyHandler<any> {
         for(let metadataKey in callbacks) {
             var metadata = Reflect.getMetadata(metadataKey, target, func);
             if(metadata) {
-                 var data:ProxyFunctionData = {
+                 var data:CallbackFuncData = {
                     callback: callbacks[metadataKey],
                     metadata: metadata,
-                    metadataKey: metadataKey
+                    metadataKey: metadataKey,
+                    target : target
                  }
                  return proxyFunction.bind(data);
              }
@@ -25,11 +26,7 @@ export class RepoProxy implements ProxyHandler<any> {
     } 
 }
 
-export interface ProxyFunctionData {
-    callback: CallbackFunc;
-    metadata: any;
-    metadataKey: string;
-}
+
 
 async function proxyFunction (...params:any):Promise<any[]> {
     var data = await this.callback(this, params);

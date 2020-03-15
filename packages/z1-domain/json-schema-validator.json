@@ -1,0 +1,8 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["*.table.json"],
+            "url": "../core-domain-builder/schema/domain.json"
+        }    
+    ]
+}

@@ -15,4 +15,4 @@ test(__filename, async () => {
 		await conn0.close();
 		await conn1.close();
 		await pool.close();
-    });
+    }, 20000);

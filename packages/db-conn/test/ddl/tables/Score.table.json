@@ -1,0 +1,9 @@
+{
+	"title":"Score",	
+	"description":"Score",
+	"properties": {
+		"id": {
+			"type":"number"
+		}
+	}
+}

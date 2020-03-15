@@ -1,72 +1,82 @@
 {
 	"$schema": "https://json-schema.org/draft/2019-09/schema",
 	"properties": {
-        "$schema": {
-            "type": "string"
-		},		
-        "name": {
-			"type": "string",
-			"minLength": 4,
-  			"maxLength": 32
-        },
-        "description": {
-            "type": "string"
+		"$schema": {
+			"type": "string"
 		},
-		"primaryKey" : {
+		"additionalProperties" : {
+			"type" : "boolean"
+		},
+		"type" : {
+			"type" : "string"
+		},
+		"title" : {
+			"type" : "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"primaryKey": {
 			"type": "array"
 		},
-		"columns":{
-			"$ref": "#/definitions/columns"
-		}		
+		"properties": {
+			"$ref": "#/definitions/properties"
+		}
 	},
 	"additionalProperties": false,
-    "definitions": {
-        "columns":{
-			"type": "array",
-			"minItems": 1,
-			"items": {
-				"$ref": "#/definitions/column"
+	"definitions": {
+		"properties": {
+			"type": "object",
+			"additionalProperties": {
+				"$ref": "#/definitions/property"
 			}
 		},
-		"column":{
+		"property": {
 			"type": "object",
-			"required": ["name", "type"],
+			"required": [
+				"type"
+			],
 			"properties": {
-				"name": {"type": "string"},
 				"type": {
 					"type": "string",
-					"enum": ["string", "number", "decimal","date"]
+					"enum": [
+						"string",
+						"number"
+					]
 				},
-				"length" :{"type": "number"},
-				"default":{"type": "string"},
-				"values" :{
+				"format" : {
+					"type" : "string", 
+					"enum" : ["date-time"]
+				},
+				"maxLength": {
+					"type": "number"
+				},
+				"default": {
+					"type": "string"
+				},
+				"values": {
 					"$ref": "#/definitions/validValues"
 				},
-				"editSize" :{"type": "number"},
+				"editSize": {
+					"type": "number"
+				},
 				"editType": {
 					"type": "string",
-					"enum": ["amount", "price", "quantity","measure"]
-				}			
-			},
-			"additionalProperties": false
-		},
-        "validValues":{
-			"type": "array",
-			"minItems": 1,
-			"items": {
-				"$ref": "#/definitions/validValue"
-			}
-		},	
-        "validValue":{
-			"type": "object",
-			"required": ["value", "desc"],
-			"properties": {
-				"value": {"type": "string"},
-				"desc": {
-					"type": "string"
+					"enum": [
+						"amount",
+						"price",
+						"quantity",
+						"measure"
+					]
 				}
 			},
 			"additionalProperties": false
-		}						
-    }	
+		},
+		"validValues": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		}
+	}
 }

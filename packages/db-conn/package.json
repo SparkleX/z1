@@ -9,9 +9,12 @@
   },
   "author": "Sun, Xufei",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "jsonfile": "^6.0.1"
+  },
   "devDependencies": {
     "@types/jest": "^24.9.0",
+    "@types/jsonfile": "^5.0.0",
     "@types/node": "^13.1.8",
     "jest": "^24.9.0",
     "ts-jest": "^24.3.0",

@@ -1,0 +1,29 @@
+{
+	"title": "ORDR",
+	"description": "Sales Order",
+	"primaryKey": [
+		"DocEntry"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"DocEntry": {
+			"type": "number"
+		},
+		"CardCode": {
+			"type": "string",
+			"maxLength": 64
+		},
+		"CardName": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"DocDate": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"DocDueDate": {
+			"type": "string",
+			"format": "date-time"
+		}
+	}
+}

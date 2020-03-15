@@ -6,11 +6,9 @@
 	"author": "Sun, Xufei",
 	"license": "MIT",
 	"scripts": {
-		"all": "run-s build cover",
 		"build": "tsc",
 		"clean": "rimraf dist",
-		"test": "mocha",
-		"cover": "nyc mocha"
+		"test": "jest"
 	},	
 	"dependencies": {		
 		"db-conn":"1.0.0",

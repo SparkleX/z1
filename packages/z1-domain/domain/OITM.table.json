@@ -1,0 +1,43 @@
+{
+	"title": "OITM",
+	"description": "Item Master Data",
+	"primaryKey": [
+		"ItemCode"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"ItemCode": {
+			"type": "string",
+			"editSize": 8
+		},
+		"ItemName": {
+			"type": "string",
+			"editSize": 10
+		},
+		"IsSales": {
+			"type": "string",
+			"default": "N",
+			"values": {
+				"Y": "desc",
+				"N": "No"
+			}
+		},
+		"IsStock": {
+			"type": "string",
+			"default": "N",
+			"values": {
+				"Y": "Yes",
+				"N": "No"
+			}
+		},
+		"TaxLiable": {
+			"type": "string",
+			"default": "N",
+			"values": {
+				"Y": "Yes",
+				"N": "No",
+				"U": "NA"
+			}
+		}
+	}
+}

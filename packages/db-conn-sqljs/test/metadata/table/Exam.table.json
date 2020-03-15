@@ -1,0 +1,16 @@
+{
+	"title":"Exam",	
+	"description":"Examination",
+	"properties": {
+		"id": {
+			"type":"number"
+		},
+		"name": {
+			"type":"string",
+			"maxLength": 64
+		},
+		"examDate": {
+			"type":"string"
+		}
+	}
+}

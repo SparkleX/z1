@@ -1,6 +1,5 @@
 import {Connection} from "db-conn"
 import {SqlJsConnection, initSqlJs} from "../src/index"
-import {describe,it} from "mocha"
 import { sqlTest, transactionTest } from "./TestCase"
 
 test("Metadata.loadAll", async () => {

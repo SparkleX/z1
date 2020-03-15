@@ -1,13 +1,21 @@
 import { Container,interfaces } from "inversify";
-import { Types} from "./Types"
-import {OCRDService,OITMService, ORDRService} from "z1-service"
-import { OITMRepository, OCRDRepository, ORDRRepository } from "z1-repository";
-import { RepositoryFactory, RepositoryHandler } from "core-repository";
-import { AnsiAdapter, CrudRepositoryAdapter } from "core-repository-crud";
 import { OITM,OCRD,ORDR } from "z1-domain";
 import { Connection } from 'db-conn';
 
+import * as entries from "./Entries";
+import {autoProvide, buildProviderModule} from "inversify-binding-decorators";
 
+
+
+
+const container = new Container();
+for (const key in entries) {
+	autoProvide(container, (entries as any)[key]);
+}
+container.load(buildProviderModule());
+export {container}
+global['container'] = container
+/*
 
 class RepoHandlerImpl implements RepositoryHandler {
     async execute(sql: string, params?: any[]): Promise<any> {
@@ -20,7 +28,6 @@ let adapter:CrudRepositoryAdapter = new AnsiAdapter();
 
 let repoHandlerImpl = new RepoHandlerImpl();
 
-const container = new Container();
 
 container.bind<OCRDService>(Types.OCRDService).to(OCRDService);
 container.bind<OITMService>(Types.OITMService).to(OITMService);
@@ -50,5 +57,4 @@ container.bind<ORDRRepository>(Types.ORDRRepository).to(ORDRRepository).onActiva
     }
 );
 
-export { container };
-global['container'] = container;
+;*/

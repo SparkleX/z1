@@ -9,9 +9,7 @@
 	"scripts": {
 		"all": "run-s build",
 		"prebuild": "npm run clean",
-		"clean": "rimraf dist",
-		"test": "mocha -r ts-node/register test/**/*Test.ts",
-		"cover": "nyc --reporter=lcov --reporter=text-summary mocha -r ts-node/register test/**/*Test.ts"
+		"clean": "rimraf dist"
 	},
 	"author": "Sun, Xufei",
 	"license": "ISC",

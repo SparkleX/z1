@@ -14,7 +14,8 @@
     "core-repository-crud": "1.0.0",
     "inversify": "^5.0.1",
     "z1-domain": "1.0.0",
-    "z1-repository": "1.0.0"
+    "z1-repository": "1.0.0",
+    "inversify-binding-decorators": "^4.0.0"
   },
   "author": "",
   "license": "ISC"

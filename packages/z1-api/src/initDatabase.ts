@@ -7,7 +7,7 @@ export async function initDatabase() {
 	
 	var SQL = await initSqlJs();
 	var conn:Connection = new SqlJsConnection();
-	conn.open(SQL);
+	await conn.open(SQL);
 
 	(global as any).conn = conn;
 	var ddlBuilder:DdlBuilder = new SqlJsDdlBuilder();

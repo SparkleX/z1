@@ -1,0 +1,20 @@
+{
+	"title": "RDR1",
+	"description": "Sales Order Details",
+	"primaryKey": [
+		"DocEntry",
+		"LineNum"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"DocEntry": {
+			"type": "number"
+		},
+		"LineNum": {
+			"type": "number"
+		},
+		"LineTotal": {
+			"type": "number"
+		}
+	}
+}

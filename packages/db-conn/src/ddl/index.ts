@@ -1,8 +1,8 @@
 export * from './MdTable';
-export * from  './MdColumn';
+export * from  './Property';
 export * from  './Metadata';
 export * from  './DdlBuilder';
-export * from  './MdColumnType';
+export * from  './Type';
 
 
 

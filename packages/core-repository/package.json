@@ -20,5 +20,5 @@
 		"jest": "^25.1.0",
 		"ts-jest": "^25.2.1"
 	},
-	"homepage": "https://github.com/SparkleX/z1/packages/core-repository"
+	"homepage": "https://github.com/SparkleX/z1/tree/master/packages/core-repository"
 }

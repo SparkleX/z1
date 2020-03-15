@@ -1,0 +1,25 @@
+{
+	"type": "object",
+	"title":"OCRD",
+	"primaryKey": ["CardCode"],
+	"additionalProperties": false,
+	"properties": {
+		"CardCode": {
+			"type":"string"
+		},
+		"CardName": {
+			"type":"string"
+		},
+		"CardType" : {
+			"type": "string",
+			"values": {
+				"C": "Customer",
+				"S": "Vendor",
+				"L": "Leads"
+			}
+		},
+		"Balance": {
+			"type": "number"
+		}		
+	}
+}

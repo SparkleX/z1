@@ -1,21 +1,22 @@
 {
-  "name": "z1-repository",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc"
-	
-  },
-  "dependencies": {
-	  "z1-domain":"1.0.0",
-	  "core-repository":"1.0.0",
-	  "core-repository-crud":"1.0.0",
-	  "inversify": "^5.0.1"
-  },
-  "devDependencies": {
-	  "typescript": "^3.6.4"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "z1-repository",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "core-repository": "1.0.0",
+        "core-repository-crud": "1.0.0",
+        "inversify": "^5.0.1",
+        "inversify-binding-decorators": "^4.0.0",
+        "reflect-metadata": "^0.1.13",
+        "z1-domain": "1.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.6.4"
+    },
+    "author": "",
+    "license": "ISC"
 }

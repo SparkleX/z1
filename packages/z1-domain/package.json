@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
-		"prebuild": "npx core-domain-builder --in=domain --out=src",
+		"prebuild": "json-schema-validator && json2tsdir --input=domain --output=src",
 		"build": "tsc",
 		"clean": "rimraf dist"
 	},
@@ -13,6 +13,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"core-domain-builder": "1.0.0",
+		"json-schema-to-typescript-dir": "^1.0.2",
 		"rimraf": "^3.0.0",
 		"typescript": "^3.6.4"
 	}

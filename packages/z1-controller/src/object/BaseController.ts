@@ -3,6 +3,9 @@ import { BaseService } from "z1-service/dist/BaseService";
 import { injectable } from "inversify";
 import { Container } from "inversify";
 import {Request, Response} from "express"
+import { OCRDService } from "z1-service";
+
+import * as services from "z1-service";
 
 @injectable()
 export class BaseController<
@@ -18,9 +21,10 @@ export class BaseController<
 
 	public constructor() {
 		var container:Container = (global as any).container as Container;
-       	var serviceName = this.getTableName() + "Service";
-       	this.service = container.get<TService>(serviceName);
-   }
+		var serviceName = this.getTableName() + "Service";
+		var service = (services as any)[serviceName];
+	   	this.service = container.get<TService>(service);
+	}
 	@httpGet("/")
     public async findAll(@response() res: Response): Promise<any> {
 		var data = await this.service.findAll();

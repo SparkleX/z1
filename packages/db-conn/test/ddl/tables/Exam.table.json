@@ -1,0 +1,15 @@
+{
+	"title":"Exam",	
+	"description":"Examination",
+	"properties": {
+		"id": {
+			"type":"number"
+		},
+		"name":{
+			"type":"string"
+		},
+		"examDate":{
+			"type":"string"
+		}
+	}
+}

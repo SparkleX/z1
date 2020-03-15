@@ -1,8 +1,8 @@
-import { MdColumn } from "./MdColumn";
+import { Property } from "./Property";
 
 export class MdTable {
-	public name:string ;
+	public title:string ;
 	public description:string;
 	public primaryKey:[];
-	public columns : MdColumn[];
+	public properties:{[index:string]:Property};
 }

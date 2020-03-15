@@ -5,8 +5,7 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "tsc",
-		"clean": "rimraf dist",
-		"test": "mocha -r ts-node/register test/**/*Test.ts"
+		"clean": "rimraf dist"
 	},
 	"author": "Sun, Xufei",
 	"license": "MIT",
