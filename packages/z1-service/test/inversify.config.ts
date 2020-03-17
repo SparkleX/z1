@@ -7,5 +7,6 @@ for (const key in entries) {
 	autoProvide(container, (entries as any)[key]);
 }
 container.load(buildProviderModule());
+
 export {container}
-global['container'] = container
+(global as any)['container'] = container;
