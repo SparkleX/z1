@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import * as spkCore from "sparkle-core";
 
 export default {
 	props: {
@@ -17,10 +16,6 @@ export default {
 	}),
 	methods:{
 		test : function () {
-			var a = new spkCore.Test();
-			//var c = a.add(1,2);
-			//alert(c);
-			alert(a.add(1,2));
 			
 		}
 	},
