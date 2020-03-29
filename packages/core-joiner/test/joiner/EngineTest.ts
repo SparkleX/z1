@@ -1,11 +1,9 @@
 import { QueryEngine } from "../../src/index"
 
-import { describe,it } from "mocha"
-import * as chai from 'chai'
 import * as fs from 'fs'
 import { SqlJsConnection, SqlJsDdlBuilder, initSqlJs} from "db-conn-sqljs"
 import { Connection, DdlBuilder, MdTable, Metadata} from "db-conn"
-
+/*
 describe(__filename, () => {
 	var conn:SqlJsConnection;
 	var engine:QueryEngine;
@@ -82,10 +80,10 @@ describe(__filename, () => {
 			{ credit: 300, debit: 300 } 
 		]);
 	});	
-	/*it.only("join jump 1,Account", async function() {
+	it.only("join jump 1,Account", async function() {
 		var columns = ["Journal.id", "Account.code"];
 		var result = await engine.query(conn, semantic, columns);
 		console.debug(JSON.stringify(result));
 		chai.expect(result).to.eqls([]);
-	});	*/	
-});
+	});		
+});*/

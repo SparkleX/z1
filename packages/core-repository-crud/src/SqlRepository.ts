@@ -121,5 +121,7 @@ export abstract class SqlRepository<T, ID>{
 		//return rt;
 		return ["id"];
 	}	
-	abstract getTableName(): string;
+	private getTableName(): string{
+		return this.TName;
+	}
 }

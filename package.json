@@ -1,9 +1,10 @@
 {
   "name": "root",
   "private": true,
-  "scripts" : {
-    "install":"lerna bootstrap --hoist",
-    "build":"lerna run build"
+  "scripts": {
+    "install1": "lerna bootstrap --hoist",
+    "install": "lerna bootstrap",
+    "build": "lerna run build"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
