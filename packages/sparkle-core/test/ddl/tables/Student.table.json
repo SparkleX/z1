@@ -1,0 +1,9 @@
+{
+	"title":"Student",	
+	"description":"Student",
+	"properties": {
+		"id": {
+			"type":"number"
+		}
+	}
+}

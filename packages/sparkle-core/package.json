@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +18,12 @@
     "jest": "^24.9.0",
     "ts-jest": "^24.3.0",
     "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "jsonfile": "^6.0.1",
+    "reflect-metadata": "^0.1.13",
+    "sql.js": "^1.2.1",
+    "sqljs": "0.0.0-6"
   }
 }
