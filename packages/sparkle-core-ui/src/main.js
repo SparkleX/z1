@@ -11,10 +11,17 @@ new Vue({
 }).$mount('#app')
 
 export default DateInput*/
-import DummyButton from './components/DummyButton.vue'
+import Vue from 'vue';
+import Vuetify from 'vuetify/lib';
+Vue.use(Vuetify);
+
+import DummyButton from './components/DummyButton.vue';
+import DateInput from './components/input/DateInput.vue';
 //import store from './store'
 export default {
 	install(Vue) {
-		Vue.component('dummy-button', DummyButton)
+		
+		Vue.component('dummy-button', DummyButton);
+		Vue.component('a-date-input', DateInput)
 	}
 }
