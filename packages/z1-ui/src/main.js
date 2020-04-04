@@ -53,6 +53,10 @@ Vue.use(VuetifyDialog, {context: {vuetify}});
 
 Vue.use(metadata);
 
+import SparkleCoreUi from 'sparkle-core-ui';
+Vue.use(SparkleCoreUi);
+
+
 new Vue({
   vuetify,
   router,
