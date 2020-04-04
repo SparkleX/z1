@@ -1,5 +1,6 @@
 [
 	{
+		"Id": "8bec3c0e-6490-4a4c-8c8c-4aa5c82e6740",
 		"ItemCode": "I001",
 		"ItemName": "Apple",
 		"IsSales" : "Y",
@@ -7,6 +8,7 @@
 		"TaxLiable":"Y"
 	},
 	{
+		"Id": "4af2ca99-280e-4751-a9c2-4d5a86651a41",
 		"ItemCode": "I002",
 		"ItemName": "Orange",
 		"IsSales" : "N",

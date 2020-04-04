@@ -30,7 +30,7 @@ handlebars.registerHelper('type', function(value, options) {
 });
 
 
-function validate(content, schema) {
+function validate(content: any, schema: any) {
 	var errors = v.validate(content, schema).errors;
 	if(errors.length!=0) {
 		console.debug(errors);
@@ -38,7 +38,7 @@ function validate(content, schema) {
 	}
 }
 
-function buildSourceCode(json, outFile) {
+function buildSourceCode(json: object, outFile: string) {
 	var sourceCode = template(json);
 	fs.writeFileSync(outFile,sourceCode);
 }

@@ -1,6 +1,6 @@
 import { ConnectionPool,Connection } from '../db';
 import {PgConnection} from "./PgConnection";
-import * as Pool from 'pg-pool';
+const Pool = require('pg-pool');
 
 export class PgConnectionPool implements ConnectionPool{
 	pool: any;

@@ -1,15 +1,15 @@
-import { SqlJsDdlBuilder, SqlJsConnection,initSqlJs } from "sparkle-core";
-import { Connection,DdlBuilder, Metadata, MdTable } from "sparkle-core";
+import { SqlJsDdlBuilder, SqlJsConnection,initSqlJs, ConnectionPool, SqlJsConnectionPool } from "sparkle-core";
+import { Connection,DdlBuilder, Metadata, Table} from "sparkle-core";
 
 import * as fs from 'fs'
 
-export async function initDatabase() {
-	
+export async function initDatabase(): Promise<ConnectionPool> {
 	var SQL = await initSqlJs();
-	var conn:Connection = new SqlJsConnection();
-	await conn.open(SQL);
+	let pool: ConnectionPool = new SqlJsConnectionPool();
+	pool.open(SQL);
 
-	(global as any).conn = conn;
+	var conn: Connection = await pool.getConnection();
+
 	var ddlBuilder:DdlBuilder = new SqlJsDdlBuilder();
 
 
@@ -34,7 +34,7 @@ export async function initDatabase() {
 	var files= fs.readdirSync(dir);	
 	for(let file of files) {
 		let rawdata = fs.readFileSync(`${dir}/${file}`).toString();
-		let table:MdTable = metadata.tables[file.split(".")[0]];
+		let table: Table = metadata.tables[file.split(".")[0]];
 		var sql = ddlBuilder.insertSql(table);
 		var data = JSON.parse(rawdata);
 		var paramsArray = ddlBuilder.insertData(table, data);
@@ -42,4 +42,7 @@ export async function initDatabase() {
 			await conn.execute(sql, param);
 		}
 	};
+
+
+	return pool;
 }

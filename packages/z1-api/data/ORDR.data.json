@@ -1,12 +1,19 @@
 [
 	{
+		"Id": "99c70c8e-6952-47ef-8bfc-93237fd164b1",
 		"DocEntry": 1,
 		"CardCode": "C001",
-		"CardName": "Intel"
+		"CardName": "Intel",
+		"DocDate": "1",
+		"DocDueDate": "1"
 	},
 	{
+		"Id": "53b4c982-e441-4c62-ade4-f12d89387152",
 		"DocEntry": 2,
 		"CardCode": "C002",
-		"CardName": "Microsoft"
+		"CardName": "Microsoft",
+		"DocDate": "1",
+		"DocDueDate": "1"
+
 	}
 ]

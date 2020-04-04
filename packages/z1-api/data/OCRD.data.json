@@ -1,11 +1,13 @@
 [
 	{
+		"Id": "6e2c4c09-a65a-4335-ad42-869feb548910",
 		"CardCode": "C001",
 		"CardName": "Intel",
 		"CardType" :"C",
 		"Balance" : 100.00
 	},
 	{
+		"Id": "73e7b781-f6c8-4f51-a132-74952aa2b3c6",
 		"CardCode": "C002",
 		"CardName": "Microsoft",
 		"CardType" :"S",

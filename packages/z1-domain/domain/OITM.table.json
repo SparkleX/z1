@@ -5,6 +5,9 @@
 		"ItemCode"
 	],
 	"columns": {
+		"Id": {
+			"type":"guid"
+		},
 		"ItemCode": {
 			"type": "string",
 			"editSize": 8

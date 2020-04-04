@@ -4,9 +4,9 @@ import {OCRD} from "z1-domain"
 import { fluentProvide } from "inversify-binding-decorators";
 import { BaseRepo } from "./BaseRepo";
 
-@(fluentProvide(OCRDRepository)
+@(fluentProvide(OCRDRepo)
 .inSingletonScope()
 .onActivation(repoConstructor).done())
-export class OCRDRepository extends BaseRepo<OCRD>{
+export class OCRDRepo extends BaseRepo<OCRD>{
 
 }

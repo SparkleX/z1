@@ -2,22 +2,20 @@ import * as bodyParser from "body-parser";
 import * as morgan from "morgan";
 import * as express from "express";
 import * as compression from 'compression'
-import { Container } from "inversify"
 import "reflect-metadata";
 
-import {
-  interfaces,
-  InversifyExpressServer,
-  TYPE
-} from "inversify-express-utils"
+import { InversifyExpressServer } from "inversify-express-utils"
 
 import { container } from "./inversify.config"
 import "z1-controller"
 import {initDatabase} from "./initDatabase"
 import * as proxy from 'http-proxy-middleware';
+import { ClsExpress } from 'sparkle-core';
 
 async function main() {
-	await initDatabase();
+	var dbPool = await initDatabase();
+	ClsExpress.Default.setPool(dbPool);
+
 	let server = new InversifyExpressServer(container);
 	server.setConfig(app => {
 		app.use(morgan("dev"));
@@ -28,6 +26,7 @@ async function main() {
 			extended: true
 			})
 		);
+		app.use(ClsExpress.middleware);
 		app.use(bodyParser.json());
 		app.use('/web', proxy({target: 'http://localhost:8080'}));
 	});

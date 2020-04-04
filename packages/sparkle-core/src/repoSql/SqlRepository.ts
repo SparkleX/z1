@@ -1,46 +1,57 @@
 import "reflect-metadata"
-import { injectable } from "inversify";
-import { CallbackFunc, CallbackFuncData } from "../repo"
+import { injectable, postConstruct } from "inversify";
+import { ClsExpress } from "../clsHook/ClsExpress";
+import { Connection } from "../db/Connection";
+import { Result } from "../db/Result";
 
 @injectable()
 export abstract class SqlRepository<T, ID>{
-	static callbackFunction: CallbackFunc;
 	static quote:string = '"';
-	protected TName: string;
-	/*public postConstruct(x : new () => T) {
-		this.TName = x.name;
-		this.table = this.adapter.getTableName(this.TName);
-	}*/
+	protected tableName: string;
+
+	@postConstruct()
+	public postConstruct() {
+		var name = this.constructor.name;
+		if(name.endsWith("Repo") == false) {
+			throw `${name} is not endwith "Repo"`;
+		}
+		this.tableName = name.substr(0, name.length - "Repo".length);
+	}
 	public async findAll():Promise<T[]> {
 		
-		var sql = `select * from ${SqlRepository.quote}${this.getTableName()}${SqlRepository.quote}`;
+		var sql = `select * from ${SqlRepository.quote}${this.tableName}${SqlRepository.quote}`;
 		console.log(sql);
-		var list = this.execute(sql);
-		return list;
+		var result = await this.execute(sql);
+		return result.data;
 	}
-	private execute(sql:string, param?: any[]):any {
+	/*private execute(sql:string, param?: any[]):any {
 		let p1: CallbackFuncData = {    
 			metadata: sql,
 			target : this,
 		};
-		var list = SqlRepository.callbackFunction(p1, param);
-		return list;
+		//var list = SqlRepository.callbackFunction(p1, param);
+		//return list;
+	}*/
+	protected async execute(sql: string, param?: any[]): Promise<Result> {
+		var conn: Connection = await ClsExpress.Default.getConnection();
+		return conn.execute(sql, param);
 	}
+
 	public async findByKey(id:ID):Promise<T> {
 		var columns:string[] = this.getIdColumns();
 		var condition = this.sqlKeys(columns);
-		var sql = `select * from ${SqlRepository.quote}${this.getTableName()}${SqlRepository.quote} where ${condition}`;
+		var sql = `select * from ${SqlRepository.quote}${this.tableName}${SqlRepository.quote} where ${condition}`;
 		console.log(sql);
-		var list = await this.execute(sql, [id]) as any;
-		if(list.length==0) {
+		var result: Result = await this.execute(sql, [id]);
+		if(result.data.length==0) {
 			return null;
 		}
-		return list[0];
+		return result.data[0];
 	}
 	public async delete(id: ID):Promise<void>{
 		var columns:string[] = this.getIdColumns();
 		var condition = this.sqlKeys(columns);
-		var sql = `delete from ${SqlRepository.quote}${this.getTableName()}${SqlRepository.quote} where ${condition}`;
+		var sql = `delete from ${SqlRepository.quote}${this.tableName}${SqlRepository.quote} where ${condition}`;
 		console.log(sql);
 		await this.execute(sql, [id]);
 	}		
@@ -57,7 +68,7 @@ export abstract class SqlRepository<T, ID>{
 		var values = this.getValues(data, columns);
 		var sqlInsertColumns = this.sqlInsertColumns(columns);
 		var sqlInsert = this.sqlInsert(columns);
-		var sql = `insert into ${SqlRepository.quote}${this.getTableName()}${SqlRepository.quote}(${sqlInsertColumns}) values(${sqlInsert})`;
+		var sql = `insert into ${SqlRepository.quote}${this.tableName}${SqlRepository.quote}(${sqlInsertColumns}) values(${sqlInsert})`;
 		console.log(sql);
 		await this.execute(sql, values);
 	}
@@ -86,7 +97,7 @@ export abstract class SqlRepository<T, ID>{
 		var sqlUpdate = this.sqlUpdate(columns);
 		var idColumns:string[] = this.getIdColumns();
 		var sqlWhere = this.sqlKeys(idColumns);
-		var sql = `update ${SqlRepository.quote}${this.getTableName()}${SqlRepository.quote} set ${sqlUpdate} where ${sqlWhere}`;
+		var sql = `update ${SqlRepository.quote}${this.tableName}${SqlRepository.quote} set ${sqlUpdate} where ${sqlWhere}`;
 		console.log(sql);
 		values.push(id);
 		await this.execute(sql, values);
@@ -111,7 +122,7 @@ export abstract class SqlRepository<T, ID>{
 	protected getValues(data:T, columns:string[]): any[]{
 		var rt = [];
 		for(let col of columns) {
-			rt.push(data[col]);
+			rt.push((data as any)[col]);
 		}
 		return rt;
 	}	
@@ -121,7 +132,4 @@ export abstract class SqlRepository<T, ID>{
 		//return rt;
 		return ["id"];
 	}	
-	private getTableName(): string{
-		return this.TName;
-	}
 }

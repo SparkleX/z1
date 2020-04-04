@@ -6,6 +6,9 @@
 		"LineNum"
 	],
 	"columns": {
+		"Id": {
+			"type":"guid"
+		},
 		"DocEntry": {
 			"type": "number"
 		},

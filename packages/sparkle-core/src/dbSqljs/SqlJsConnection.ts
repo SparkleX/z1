@@ -1,10 +1,9 @@
-import { Connection } from '../db';
+import { Connection, Result } from '../db';
+// @ts-ignore
 import * as sqljs  from 'sql.js';
 
 export class SqlJsConnection implements Connection{
 	private db: any;
-	private resultSet:any[];
-	private updateCount:number;
 
 	public constructor() {
 		
@@ -13,21 +12,16 @@ export class SqlJsConnection implements Connection{
 		this.db = new config.Database();
 	}
 	public async executeQuery(sql: string, params?: any[]): Promise<any[]> {
-		await this.execute(sql, params);
-		return this.getResultSet();
+		let result: Result = await this.execute(sql, params);
+		return result.data;
 
 	}
-	public getResultSet():any[] {
-		return this.resultSet;
-	}
-	public getUpdateCount():number {
-		return this.updateCount;
-	}
 
-	public async execute(sql: string, params?: any[]): Promise<boolean> {
+	public async execute(sql: string, params?: any[]): Promise<Result> {
 		console.log(`SqlJsConnection.execute: ${sql} : [${params}]`);
+		let result: Result = {};
 		var stmt = this.db.prepare(sql,params);
-		this.resultSet = [];
+		result.data = [];
 		var isResultSet = stmt.step();
 		if(isResultSet) {
 			var columns:string[] = stmt.getColumnNames();
@@ -38,13 +32,13 @@ export class SqlJsConnection implements Connection{
 					var colName = columns[index]
 					data[colName] = row[index];
 				}	
-				this.resultSet.push(data);
+				result.data.push(data);
 			}while(stmt.step());
 		}
 
-		this.updateCount = this.db.getRowsModified();
+		result.updateCount = this.db.getRowsModified();
 		stmt.free();
-		return isResultSet;
+		return result;
 	}
 	public async close():Promise<void> {
 

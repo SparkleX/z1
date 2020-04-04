@@ -1,4 +1,4 @@
-import {DdlBuilder, MdTable, Property} from "../ddl";
+import {DdlBuilder} from "../ddl";
 /*
 export class PgDdlBuilder implements DdlBuilder {
 	private q = '';

@@ -1,22 +1,30 @@
 import { SqlRepository } from "sparkle-core";
 import { BaseRepo } from "z1-repository";
-import { Container, injectable ,postConstruct } from "inversify";
+import { Container, injectable ,postConstruct, inject } from "inversify";
 import * as repos from "z1-repository";
 
 @injectable()
 export class BaseService <TRepository extends BaseRepo<T>, T> {
 	repository:TRepository;
 
+    @inject(Container.name)
+    container: Container;
+
+    tableName: string;
+
     @postConstruct()
 	public init(){
-		var container:Container = (global as any).container as Container;
-        var repoName = this.getTableName() + "Repository";
+        var name = this.constructor.name;
+		if(name.endsWith("Service") == false) {
+			throw `${name} is not endwith "Service"`;
+		}
+        this.tableName = name.substr(0, name.length - "Service".length);   
+                
+        var repoName = this.tableName + "Repo";
         var repoClass = (repos as any)[repoName]
-        this.repository = container.get<TRepository>(repoClass);
+        this.repository = this.container.get<TRepository>(repoClass);
     }
-    protected getTableName() {
-        return this.constructor.name.substr(0,4);        
-    }
+
 	public async findAll():Promise<T[]> {
         return await this.repository.findAll();
     }

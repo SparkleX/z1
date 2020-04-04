@@ -6,6 +6,9 @@
 	],
 	"additionalProperties": false,
 	"columns": {
+		"Id": {
+			"type":"guid"
+		},
 		"DocEntry": {
 			"type": "number"
 		},

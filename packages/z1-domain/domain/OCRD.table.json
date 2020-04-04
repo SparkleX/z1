@@ -2,6 +2,9 @@
 	"name":"OCRD",
 	"primaryKey": ["CardCode"],
 	"columns": {
+		"Id": {
+			"type":"guid"
+		},
 		"CardCode": {
 			"type":"string"
 		},

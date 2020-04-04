@@ -5,10 +5,10 @@ import { Sql } from "./Sql";
 import { BaseRepo } from "./BaseRepo";
 
 
-@(fluentProvide(ORDRRepository)
+@(fluentProvide(ORDRRepo)
 .inSingletonScope()
 .onActivation(repoConstructor).done())
-export class ORDRRepository extends BaseRepo<ORDR>{
+export class ORDRRepo extends BaseRepo<ORDR>{
     @Sql("select * from Item where code = $1")
     public async findByCode(code:string):Promise<[]> {return []}
 }

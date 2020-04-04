@@ -1,29 +1,30 @@
 import {controller, httpGet, httpPut, httpPost, httpDelete, requestParam, request, response} from "inversify-express-utils";
 import { BaseService } from "z1-service/dist/BaseService";
-import { injectable } from "inversify";
-import { Container } from "inversify";
+import { injectable, inject, postConstruct, Container} from "inversify";
 import {Request, Response} from "express"
-import { OCRDService } from "z1-service";
-
 import * as services from "z1-service";
 
 @injectable()
-export class BaseController<
-    TService extends BaseService<any, T>, 
-    //REPO extends CrudRepository<T,ID>, 
-    T extends object>{
+export class BaseController<TService extends BaseService<any, T>, T>{
   
 	service:TService;
 
-	protected getTableName() {
-        return this.constructor.name.substr(0,4);        
-	}
+	@inject(Container.name)
+	container: Container;
+	
+	tableName: string;
 
-	public constructor() {
-		var container:Container = (global as any).container as Container;
-		var serviceName = this.getTableName() + "Service";
+	@postConstruct()
+	protected init() {
+		var name = this.constructor.name;
+		if(name.endsWith("") == false) {
+			throw `${name} is not endwith "Controller"`;
+		}
+		this.tableName = name.substr(0, name.length - "Controller".length);
+		
+		var serviceName = this.tableName + "Service";
 		var service = (services as any)[serviceName];
-	   	this.service = container.get<TService>(service);
+	   	this.service = this.container.get<TService>(service);
 	}
 	@httpGet("/")
     public async findAll(@response() res: Response): Promise<any> {

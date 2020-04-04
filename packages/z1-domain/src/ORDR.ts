@@ -1,4 +1,5 @@
 export interface ORDR {
+	Id: string;
 	DocEntry: number;
 	CardCode: string;
 	CardName: string;
