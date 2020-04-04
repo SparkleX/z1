@@ -6,6 +6,6 @@ import { ORDR } from "z1-domain";
 
 
 @controller("/api/ORDR")
-export class ORDRController extends BaseController<ORDRService, ORDR, ORDR>{
+export class ORDRController extends BaseController<ORDRService, ORDR>{
 
 }

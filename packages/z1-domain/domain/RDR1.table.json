@@ -1,12 +1,11 @@
 {
-	"title": "RDR1",
+	"name": "RDR1",
 	"description": "Sales Order Details",
 	"primaryKey": [
 		"DocEntry",
 		"LineNum"
 	],
-	"additionalProperties": false,
-	"properties": {
+	"columns": {
 		"DocEntry": {
 			"type": "number"
 		},

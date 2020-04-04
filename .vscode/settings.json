@@ -6,13 +6,9 @@
     "workbench.editor.showTabs": true,
     "json.schemas": [
         {
-            "fileMatch": ["*.table.json", "test/"],
+            "fileMatch": ["*.table.json"],
             "test": 1,
-            "url": "./packages/core-domain-builder/schema/domain.json"
-        },
-        {
-            "fileMatch": ["*.data.json"],
-            "url": "./packages/z1-domain/domain/array/OCRD.array.json"
-        }        
+            "url": "./packages/sparkle-core/resources/schema/table.json"
+        } 
     ]
 }

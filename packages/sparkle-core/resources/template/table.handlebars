@@ -1,0 +1,5 @@
+export interface {{name}} {
+{{#each columns}}
+	{{@key}}: {{type this.type}};
+{{/each}}
+}

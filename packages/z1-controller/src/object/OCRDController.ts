@@ -7,7 +7,7 @@ import { OCRD } from "z1-domain";
 
 
 @controller("/api/OCRD")
-export class OCRDController extends BaseController<OCRDService, OCRD, OCRD>{
+export class OCRDController extends BaseController<OCRDService, OCRD>{
   
 
 }

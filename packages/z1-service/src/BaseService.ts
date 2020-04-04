@@ -1,9 +1,10 @@
-import { SqlRepository } from "core-repository-crud";
+import { SqlRepository } from "sparkle-core";
+import { BaseRepo } from "z1-repository";
 import { Container, injectable ,postConstruct } from "inversify";
 import * as repos from "z1-repository";
 
 @injectable()
-export class BaseService <TRepository extends SqlRepository<T,ID>, T extends object, ID> {
+export class BaseService <TRepository extends BaseRepo<T>, T> {
 	repository:TRepository;
 
     @postConstruct()
@@ -19,7 +20,7 @@ export class BaseService <TRepository extends SqlRepository<T,ID>, T extends obj
 	public async findAll():Promise<T[]> {
         return await this.repository.findAll();
     }
-    public async getById(id:ID):Promise<T> {
+    public async getById(id:string):Promise<T> {
         return await this.repository.findByKey(id);
 	}
 	public async onIsValid(data:T):Promise<void> {
@@ -30,11 +31,11 @@ export class BaseService <TRepository extends SqlRepository<T,ID>, T extends obj
 		await this.repository.insert(data);
 		return data;
     }
-    public async update(id:ID, o:T):Promise<void> {
+    public async update(id:string, o:T):Promise<void> {
         return await this.repository.updateByKey(id, o);
     }
 
-    public async delete(id:ID):Promise<void> {
+    public async delete(id:string):Promise<void> {
         return await this.repository.delete(id);
     }
 }

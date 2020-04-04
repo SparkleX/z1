@@ -1,0 +1,16 @@
+{
+	"name": "Exam",
+	"description": "Examination",
+	"columns": {
+		"id": {
+			"type": "number"
+		},
+		"name": {
+			"type": "string",
+			"size": 64
+		},
+		"examDate": {
+			"type": "datetime"
+		}
+	}
+}

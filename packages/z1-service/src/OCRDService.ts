@@ -7,6 +7,6 @@ import { fluentProvide } from "inversify-binding-decorators";
 @(fluentProvide(OCRDService)
 .inSingletonScope()
 .done())
-export class OCRDService extends BaseService<OCRDRepository, OCRD, OCRD>{
+export class OCRDService extends BaseService<OCRDRepository, OCRD>{
 
 }

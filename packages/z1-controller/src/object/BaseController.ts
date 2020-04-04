@@ -9,9 +9,9 @@ import * as services from "z1-service";
 
 @injectable()
 export class BaseController<
-    TService extends BaseService<any, T,ID>, 
+    TService extends BaseService<any, T>, 
     //REPO extends CrudRepository<T,ID>, 
-    T extends object,ID>{
+    T extends object>{
   
 	service:TService;
 
@@ -32,7 +32,7 @@ export class BaseController<
 	}
 	
     @httpGet("/:id")
-    public async getById(@requestParam("id") id:ID, @response() res: Response): Promise<void> {
+    public async getById(@requestParam("id") id:string, @response() res: Response): Promise<void> {
 		var data =  await this.service.getById(id);
 		res.status(200).json(data);
     }
@@ -46,12 +46,12 @@ export class BaseController<
 		}
     }
     @httpPut("/:id")
-    public async update(@requestParam("id") id:ID, @request() req:Request, @response() res: Response): Promise<void> {
+    public async update(@requestParam("id") id:string, @request() req:Request, @response() res: Response): Promise<void> {
 		await this.service.update(id, req.body);
 		res.status(204).end();		 
     }
     @httpDelete("/:id")
-    public async delete(@requestParam("id") id:ID, @response() res: Response): Promise<void> {
+    public async delete(@requestParam("id") id:string, @response() res: Response): Promise<void> {
 		await this.service.delete(id);
 		res.status(204).end();
     }

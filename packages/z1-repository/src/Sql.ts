@@ -1,7 +1,5 @@
 import "reflect-metadata"
-import { CallbackFunc, RepoManager } from "core-repository";
-import {  } from "core-repository";
-
+import { CallbackFunc, RepoManager } from "sparkle-core";
 
 export const MetadataKey = "Sql:z1-repository";
 export function Sql(sql: string) {

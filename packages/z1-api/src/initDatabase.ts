@@ -1,5 +1,5 @@
-import { SqlJsDdlBuilder, SqlJsConnection,initSqlJs } from "db-conn-sqljs";
-import { Connection,DdlBuilder, Metadata, MdTable } from "db-conn"
+import { SqlJsDdlBuilder, SqlJsConnection,initSqlJs } from "sparkle-core";
+import { Connection,DdlBuilder, Metadata, MdTable } from "sparkle-core";
 
 import * as fs from 'fs'
 

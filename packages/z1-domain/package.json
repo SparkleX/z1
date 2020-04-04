@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
-		"prebuild": "json-schema-validator && json2tsdir --input=domain --output=src",
+		"prebuild": "domain-builder --in=domain --out=src",
 		"build": "tsc",
 		"clean": "rimraf dist"
 	},
@@ -12,8 +12,7 @@
 	"license": "ISC",
 	"dependencies": {},
 	"devDependencies": {
-		"core-domain-builder": "1.0.0",
-		"json-schema-to-typescript-dir": "^1.0.2",
+		"sparkle-core": "1.0.0",
 		"rimraf": "^3.0.0",
 		"typescript": "^3.6.4"
 	}

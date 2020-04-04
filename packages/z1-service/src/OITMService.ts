@@ -8,7 +8,7 @@ import { fluentProvide } from "inversify-binding-decorators";
 @(fluentProvide(OITMService)
 .inSingletonScope()
 .done())
-export class OITMService extends BaseService<OITMRepository, OITM, OITM>{
+export class OITMService extends BaseService<OITMRepository, OITM>{
 	public async onIsValid(data:OITM):Promise<void> {
 		if(data.ItemCode==null) {
 			throw new Error("ItemCode is empty")

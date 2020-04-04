@@ -4,13 +4,13 @@
         "module": "commonjs",
         "outDir": "dist",
         "noImplicitAny": false,
+        "declaration": true,
         "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true
     },
     "include": [
-      "src/**/*",
-      "test/**/*"
+      "src/**/*"
     ],
     "exclude": [
         "node_modules",

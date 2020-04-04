@@ -1,5 +1,5 @@
 import {controller, httpGet, requestParam} from "inversify-express-utils";
-import {Metadata} from "db-conn"
+import {Metadata} from "sparkle-core"
 
 @controller("/api")
 export class MetadataController{  

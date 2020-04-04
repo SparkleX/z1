@@ -1,9 +1,7 @@
 {
-	"type": "object",
-	"title":"OCRD",
+	"name":"OCRD",
 	"primaryKey": ["CardCode"],
-	"additionalProperties": false,
-	"properties": {
+	"columns": {
 		"CardCode": {
 			"type":"string"
 		},
@@ -19,7 +17,7 @@
 			}
 		},
 		"Balance": {
-			"type": "number"
+			"type": "decimal"
 		}		
 	}
 }

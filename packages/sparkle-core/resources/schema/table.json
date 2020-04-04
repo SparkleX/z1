@@ -4,14 +4,11 @@
 		"$schema": {
 			"type": "string"
 		},
-		"additionalProperties" : {
-			"type" : "boolean"
+		"additionalProperties": {
+			"type": "boolean"
 		},
-		"type" : {
-			"type" : "string"
-		},
-		"title" : {
-			"type" : "string"
+		"name": {
+			"type": "string"
 		},
 		"description": {
 			"type": "string"
@@ -19,36 +16,31 @@
 		"primaryKey": {
 			"type": "array"
 		},
-		"properties": {
-			"$ref": "#/definitions/properties"
+		"columns": {
+			"$ref": "#/definitions/columns"
 		}
 	},
 	"additionalProperties": false,
 	"definitions": {
-		"properties": {
+		"columns": {
 			"type": "object",
 			"additionalProperties": {
-				"$ref": "#/definitions/property"
+				"$ref": "#/definitions/column"
 			}
 		},
-		"property": {
+		"column": {
 			"type": "object",
-			"required": [
-				"type"
-			],
+			"required": ["type"],
 			"properties": {
 				"type": {
 					"type": "string",
-					"enum": [
-						"string",
-						"number"
-					]
+					"enum": ["string", "number", "datetime", "decimal", "guid"]
 				},
-				"format" : {
-					"type" : "string", 
-					"enum" : ["date-time"]
+				"format": {
+					"type": "string",
+					"enum": ["amount", "price", "quantity", "measure"]
 				},
-				"maxLength": {
+				"size": {
 					"type": "number"
 				},
 				"default": {
@@ -59,15 +51,6 @@
 				},
 				"editSize": {
 					"type": "number"
-				},
-				"editType": {
-					"type": "string",
-					"enum": [
-						"amount",
-						"price",
-						"quantity",
-						"measure"
-					]
 				}
 			},
 			"additionalProperties": false

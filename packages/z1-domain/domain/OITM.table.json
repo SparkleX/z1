@@ -1,11 +1,10 @@
 {
-	"title": "OITM",
+	"name": "OITM",
 	"description": "Item Master Data",
 	"primaryKey": [
 		"ItemCode"
 	],
-	"additionalProperties": false,
-	"properties": {
+	"columns": {
 		"ItemCode": {
 			"type": "string",
 			"editSize": 8

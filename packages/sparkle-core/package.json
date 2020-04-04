@@ -1,29 +1,36 @@
 {
-  "name": "sparkle-core",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "jest"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/jest": "^24.9.0",
-    "@types/node": "^13.1.8",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.3.0",
-    "typescript": "^3.6.4"
-  },
-  "dependencies": {
-    "inversify": "^5.0.1",
-    "jsonfile": "^6.0.1",
-    "reflect-metadata": "^0.1.13",
-    "sql.js": "^1.2.1",
-    "sqljs": "0.0.0-6"
-  }
+	"name": "sparkle-core",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"directories": {
+		"test": "test"
+	},
+	"bin": {
+		"domain-builder": "dist/domain/builder.js"
+	},
+	"scripts": {
+		"build": "tsc",
+		"test": "jest"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/jest": "^24.9.0",
+		"@types/node": "^13.1.8",
+		"jest": "^24.9.0",
+		"ts-jest": "^24.3.0",
+		"typescript": "^3.6.4"
+	},
+	"dependencies": {
+		"@types/jsonfile": "^5.0.0",
+		"handlebars": "^4.7.6",
+		"inversify": "^5.0.1",
+		"jsonfile": "^6.0.1",
+		"jsonschema": "^1.2.6",
+		"reflect-metadata": "^0.1.13",
+		"sql.js": "^1.2.1",
+		"sqljs": "0.0.0-6",
+		"yargs": "^15.3.1"
+	}
 }

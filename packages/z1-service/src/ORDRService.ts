@@ -7,7 +7,7 @@ import { fluentProvide } from "inversify-binding-decorators";
 @(fluentProvide(ORDRService)
 .inSingletonScope()
 .done())
-export class ORDRService extends BaseService<ORDRRepository, ORDR,ORDR> {
+export class ORDRService extends BaseService<ORDRRepository, ORDR> {
     test() {
         throw new Error("Method not implemented.");
     }
