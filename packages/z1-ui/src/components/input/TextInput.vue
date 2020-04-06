@@ -1,59 +1,60 @@
 <template>
-	<div>
-		<v-text-field :label="label" 
-			:readonly="!dataEditable" 
-			:value="value" 
-			@input="onInput($event)" 
-			:counter="counter" 			
-			:maxlength="editSize">
-		</v-text-field>  
-	</div>
+	<v-text-field :label="label" 
+		:readonly="!editable" 
+		:value="value" 
+		@input="onInput($event)" 
+		v-show="visible"
+		:type="'integer'"
+		:maxlength="maxLength">
+	</v-text-field>  
 </template>
 
-<script>
-import * as ViewUtil from "@/components/views/ViewUtil"
+<script lang="ts">
+import { Component, Vue, Prop} from 'vue-property-decorator';
 
-export default {
-	props: { 
-		label: { type:String },
-		dataBind: { type:String, required: true },
-		value: { type:[String, Number] }
-	},
-	data: () => ({
-		//editable: false,
-		visible:true,
-		focus: false
-	}),	
-	computed: {
-		metadata : function () {
-			if(this.dataBind==undefined) {
-				return false;
-			}
-			var col = this.$metadata.getColumn(this.dataBind);
-			return col;
-		},
-		editSize : function () {
-			if(this.dataBind==undefined) {
-				return false;
-			}
-			var col = this.$metadata.getColumn(this.dataBind);
-			if(!col) {
-				console.error(`${this.dataBind} is not exists`);
-			}
-			return col.editSize;
-		},		
-		dataEditable : function () {
-			var view = ViewUtil.getView(this);
+//import * as ViewUtil from "@/components/views/ViewUtil"
+@Component
+export default class TextInput extends Vue{
+	@Prop()
+	label!: string;
+	@Prop(String)
+	dataBind!: string;
+	@Prop(Number)
+	maxLength!: number;
+	@Prop([String, Number])
+	value: string|number|undefined;
+	@Prop({ default: true})
+	editable!: boolean;
+	@Prop({ default: true})
+	visible!: boolean;
 
-			return view.dataEditable;
+	/*get metadata  () {
+		if(this.dataBind==undefined) {
+			return false;
 		}
-	},
-	methods: {
-		onInput : function (event) {
-			this.$emit('input', event);
+		const col = (this as any).$metadata.getColumn(this.dataBind);
+		return col;
+	}*/
+	/*get editSize  () {
+		if(this.dataBind==undefined) {
+			return false;
 		}
-	},
+		const col = (this as any).$metadata.getColumn(this.dataBind);
+		if(!col) {
+			console.error(`${this.dataBind} is not exists`);
+		}
+		return col.editSize;
+		return 100;
+	}		*/
+	/*get dataEditable  () {
+		//const view = ViewUtil.getView(this);
 
+		//return view.dataEditable;
+		return true;
+	}*/
+	protected onInput (event: object) {
+		this.$emit('input', event);
+	}
 }
 </script>
 

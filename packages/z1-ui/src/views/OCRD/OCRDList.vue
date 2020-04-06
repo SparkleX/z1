@@ -1,17 +1,14 @@
 <template>
 	<div>
-		<a-date-input/>
-		<dummy-button/>
+
 		<s-list-view data-object="OCRD"></s-list-view>
 	</div>
 </template>
 
-<script>
-//import { DummyButton}  from "sparkle-core-ui";
+<script lang="ts">
+import { Component, Vue, Prop} from 'vue-property-decorator';
+@Component
+export default class OCRDList extends Vue{
 
-export default {
-	/*components: {
-		DummyButton
-	}*/
-};
+}
 </script>

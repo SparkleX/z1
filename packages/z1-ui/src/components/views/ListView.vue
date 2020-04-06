@@ -37,12 +37,12 @@ export default {
 			this.$router.push({ path: `/${this.dataObject}/undefined`});
 		},
 		onRowClick : function (evt) {
-			var id = evt[this.itemKey];
+			const id = evt[this.itemKey];
 			this.$router.push({ path: `/${this.dataObject}/${id}`});
 		}		
 	},
 	async mounted () {
-		var data = await axios.get(`/api_temp/listView/${this.dataObject}.list.json`);
+		let data = await axios.get(`/api_temp/listView/${this.dataObject}.list.json`);
 		this.headers = data.data.columns;
 		this.itemKey = data.data.key;
 		this.title = data.data.title;

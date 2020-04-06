@@ -4,35 +4,32 @@
 	</div>
 </template>
 
-<script>
-import * as ViewUtil from "@/components/views/ViewUtil"
+<script lang="ts">
+import { Component, Vue, Prop} from 'vue-property-decorator';
 
-export default {
-	props: { 
-		label: { type:String },
-		dataBind: {type:String},
-		value: { type:String }
-	},
-	computed: {
-		validValues: function () {
-			if(this.dataBind==undefined) {
-				return [];
-			}
-			var col = this.$metadata.getColumn(this.dataBind);
-			return col.values;
-		},
-		dataEditable : function () {
-			var view = ViewUtil.getView(this);
-			return view.dataEditable;
+import * as ViewUtil from "@/components/views/ViewUtil"
+@Component
+export default class Select extends Vue{
+	@Prop()
+	label = '';
+	@Prop()
+	dataBind = '';
+	@Prop()
+	value = '';
+	get validValues () {
+		if(this.dataBind==undefined) {
+			return [];
 		}
-	},
-	methods: {
-		onInput : function (event) {
-			this.$emit('input', event);
-		}
-	},
-	data: () => ({
-		visible:true
-	})
+		const col = (this as any).$metadata.getColumn(this.dataBind);
+		return col.values;
+	}
+	get dataEditable () {
+		const view = ViewUtil.getView(this);
+		return view.dataEditable;
+	}
+	onInput (event: any) {
+		this.$emit('input', event);
+	}
+	visible = true;
 }
 </script>

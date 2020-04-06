@@ -4,35 +4,34 @@
 	</div>
 </template>
 
-<script>
-import * as ViewUtil from "../views/ViewUtil"
+<script lang="ts">
+import { Component, Vue, Prop} from 'vue-property-decorator';
 
-export default {
-	props: { 
-		label: { type:String },
-		dataBind: { type:String},
-		dataChecked: { type:String, default:"Y" },
-		dataUnchecked: { type:String, default: "N"},
-		value: { type:String }
-	},
-	computed: {
-		valueRaw : function() {
-			return this.dataChecked==this.value;
-		},
-		dataEditable : function () {
-			var view = ViewUtil.getView(this);
-			return view.dataEditable;
-		}
-	},
-	methods: {
-		onInput : function () {
-			var value = this.valueRaw;
-			this.$emit('input', value?this.dataUnchecked:this.dataChecked);
-		}
-	},
-	data: () => ({
-		visible:true
-	})
+import * as ViewUtil from "../views/ViewUtil"
+@Component
+export default class CheckBox extends Vue{
+	@Prop()
+	label = '';
+	@Prop()
+	dataBind  = ''
+	@Prop({ default: 'Y' })
+	dataChecked = 'Y';
+	@Prop({ default: "N"})
+	dataUnchecked = 'N';
+	@Prop()
+	value = '';
+	visible = true;
+	get valueRaw () {
+		return this.dataChecked==this.value;
+	}
+	get dataEditable () {
+		const view = ViewUtil.getView(this);
+		return view.dataEditable;
+	}
+	onInput () {
+		const value = this.valueRaw;
+		this.$emit('input', value?this.dataUnchecked:this.dataChecked);
+	}	
 }
 </script>
 

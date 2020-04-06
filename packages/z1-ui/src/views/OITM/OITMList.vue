@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { Component, Vue, Prop} from 'vue-property-decorator';
+
 export default {
 //	mixins: [ListBase],
 	

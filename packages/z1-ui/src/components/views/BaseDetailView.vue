@@ -36,8 +36,8 @@ export default {
 			this.formMode = "addMode";
 		}
 		else {
-			var id = this.$route.params.id;
-			var data = await axios.get(`/api/${this.$data.$$object}/${id}`);
+			const id = this.$route.params.id;
+			const data = await axios.get(`/api/${this.$data.$$object}/${id}`);
 			this.d = data.data;
 		}
 	}

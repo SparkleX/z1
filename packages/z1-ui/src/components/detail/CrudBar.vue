@@ -54,7 +54,7 @@ export default {
 		},
 		onPressSave: async function () {
 			//console.log(JSON.stringify(this.$parent.data));
-			var id = this.$route.params.id;
+			const id = this.$route.params.id;
 			await axios.put(`/api/${this.getTableName()}/${id}`, this.$parent.d);
 			this.$router.push({ path: `/${this.$parent.$data.$$object}/`});			
 
@@ -65,11 +65,11 @@ export default {
 		},
 		onPressAdd: async function () {
 			try {
-				var tableName = this.getTableName();
-				var dataReturn = await NetUtil.create(tableName, this.$parent.d);
-				var metaTable = await NetUtil.getTable(tableName);
-				var pkCol = metaTable.primaryKey[0];
-				var id = dataReturn[pkCol];
+				const tableName = this.getTableName();
+				const dataReturn = await NetUtil.create(tableName, this.$parent.d);
+				const metaTable = await NetUtil.getTable(tableName);
+				const pkCol = metaTable.primaryKey[0];
+				const id = dataReturn[pkCol];
 				this.$router.push({ path: `/${this.getTableName()}/${id}`});	
 				this.$dialog.message.success('Operation Successful');
 				this.$parent.formMode = "viewMode";
@@ -78,7 +78,7 @@ export default {
 			}
 		},
 		onPressRemove: async function () {
-			var id = this.$route.params.id;
+			const id = this.$route.params.id;
 			const res = await this.$dialog.confirm({
 			text: 'Confirm to delete',
 			title: 'Warning'

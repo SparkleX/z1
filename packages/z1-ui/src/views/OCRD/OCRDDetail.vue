@@ -27,6 +27,7 @@
 <script>
 import BaseDetailView from "@/components/views/BaseDetailView.vue"
 
+import { Component, Vue, Prop} from 'vue-property-decorator';
 
 export default {
 	mixins: [BaseDetailView],

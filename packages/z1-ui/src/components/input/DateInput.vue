@@ -24,43 +24,44 @@
 	</div>
 </template>
 
-<script>
-export default {
-	props: ['label','dataBind','value'],
-	computed: {
-      dateFormatted: {
-			get : function () {
-				return this.parseDate(this.value);
-			}
-		}
-    },	
-	methods: {
-		onInputDate : function (event) {
-			var value1 = this.formatDate(event);
-			this.$emit('input', value1);
-			this.menu1 = false
-		},		
-		onInput : function (event) {
-			this.$emit('input', event);
-		},
-		formatDate (date) {
-			if (!date) return null;
+<script lang="ts">
+import { Component, Vue, Prop} from 'vue-property-decorator';
 
-			const [year, month, day] = date.split('-');
-			return `${month}/${day}/${year}`;
-		},
-		parseDate (date) {
-			if (!date) return null;
+@Component
+export default class DateInput extends Vue{
+	
+	@Prop()
+	label = '';
+	@Prop()
+	dataBind = '';
+	@Prop()
+	value = '';
+	get dateFormatted () {
+			return this.parseDate(this.value);
+	}
+	onInputDate  (event: any) {
+		const value1 = this.formatDate(event);
+		this.$emit('input', value1);
+		this.menu1 = false
+	}		
+	onInput  (event: any) {
+		this.$emit('input', event);
+	}
+	formatDate (date: any) {
+		if (!date) return null;
 
-			const [month, day, year] = date.split('/');
-			return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-		},		
-	},
+		const [year, month, day] = date.split('-');
+		return `${month}/${day}/${year}`;
+	}
+	parseDate (date: any) {
+		if (!date) return null;
 
-	data: () => ({
-		menu1: false,
-		menu2: false
-	})
+		const [month, day, year] = date.split('/');
+		return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+	}	
+
+	menu1= false;
+	menu2= false;
 }
 </script>
 

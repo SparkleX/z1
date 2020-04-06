@@ -51,7 +51,7 @@ const routes = [
 		name: "OCRDDetail",
 		component: () => 
 			import("@/views/OCRD/OCRDDetail.vue")
-	},
+	}
 ];
 
 const router = new VueRouter({
