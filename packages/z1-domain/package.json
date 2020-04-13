@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
-		"prebuild": "domain-builder --in=domain --out=src",
+		"prebuild": "domain-builder --in=domain --out=src/db",
 		"build": "tsc",
 		"clean": "rimraf dist"
 	},

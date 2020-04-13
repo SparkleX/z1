@@ -1,12 +1,4 @@
-<template>
-	<v-text-field :label="label" 
-		:readonly="!editable" 
-		:value="value" 
-		@input="onInput($event)" 
-		v-show="visible"
-		:maxlength="maxLength">
-	</v-text-field>  
-</template>
+
 
 <script lang="ts">
 import TextInput from './TextInput.vue';

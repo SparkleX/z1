@@ -4,7 +4,7 @@ import axios from "axios";
 class MetadataUtil {
 	tables: any;
 	constructor() {
-		this.init();
+		//this.init();
 	}
 	async init() {
 		const data = await axios.get(`/api/table`);

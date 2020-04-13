@@ -51,6 +51,12 @@ const routes = [
 		name: "OCRDDetail",
 		component: () => 
 			import("@/views/OCRD/OCRDDetail.vue")
+	},
+	{
+		path: "/test/home",
+		name: "Test Home",
+		component: () => 
+			import("@/views/test/Home.vue")
 	}
 ];
 

@@ -2,11 +2,9 @@
 	<div>
 		<v-menu
 			ref="menu1"
-			v-model="menu1"
+			v-model="showPicker"
 			:close-on-content-click="false"
 			transition="scale-transition"
-			offset-y
-			full-width
 			max-width="290px"
 			min-width="290px">
 			<template v-slot:activator="{ on }">
@@ -25,48 +23,43 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop} from 'vue-property-decorator';
+import { Component, Vue, Prop, Emit} from 'vue-property-decorator';
 
 @Component
 export default class DateInput extends Vue{
 	
+	@Prop(String)
+	label!: string;
 	@Prop()
-	label = '';
+	dataBind!: string;
 	@Prop()
-	dataBind = '';
-	@Prop()
-	value = '';
+	value!: string;
 	get dateFormatted () {
-			return this.parseDate(this.value);
+		return this.parseDate(this.value);
 	}
+	@Emit('input')
 	onInputDate  (event: any) {
-		const value1 = this.formatDate(event);
-		this.$emit('input', value1);
-		this.menu1 = false
+		//const value1 = this.formatDate(event);
+		//this.$emit('input', value1);
+		this.showPicker = false
+		return event;
 	}		
 	onInput  (event: any) {
 		this.$emit('input', event);
 	}
 	formatDate (date: any) {
-		if (!date) return null;
+		//if (!date) return null;
 
-		const [year, month, day] = date.split('-');
-		return `${month}/${day}/${year}`;
+		//const [year, month, day] = date.split('-');
+		//return `${month}/${day}/${year}`;
 	}
 	parseDate (date: any) {
 		if (!date) return null;
 
-		const [month, day, year] = date.split('/');
-		return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+		const [month, day, year] = date.split('-');
+		return date;
 	}	
 
-	menu1= false;
-	menu2= false;
+	showPicker= false;
 }
 </script>
-
-<style>
-</style>
-
-<style scoped>
-</style>

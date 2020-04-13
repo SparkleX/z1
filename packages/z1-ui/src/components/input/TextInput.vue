@@ -1,60 +1,47 @@
 <template>
-	<v-text-field :label="label" 
-		:readonly="!editable" 
-		:value="value" 
-		@input="onInput($event)" 
+	<v-text-field
+		:label="label"
+		:readonly="!editable"
+		:value="value"
+		@input="onInput($event)"
 		v-show="visible"
 		:type="'integer'"
-		:maxlength="maxLength">
-	</v-text-field>  
+		:maxlength="maxLength"
+	></v-text-field>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop} from 'vue-property-decorator';
-
-//import * as ViewUtil from "@/components/views/ViewUtil"
+import { Component, Vue, Prop, Emit } from "vue-property-decorator";
+import { Format } from "./Format";
 @Component
-export default class TextInput extends Vue{
+export default class TextInput extends Vue {
 	@Prop()
 	label!: string;
 	@Prop(String)
 	dataBind!: string;
-	@Prop(Number)
-	maxLength!: number;
 	@Prop([String, Number])
-	value: string|number|undefined;
-	@Prop({ default: true})
+	value: string | number | undefined;
+	@Prop({ default: true })
 	editable!: boolean;
-	@Prop({ default: true})
+	@Prop({ default: true })
 	visible!: boolean;
+	@Prop({ type: Object })
+	format!: Format;
 
-	/*get metadata  () {
-		if(this.dataBind==undefined) {
-			return false;
+	get maxLength(): number | undefined {
+		if (this.format) {
+			return this.format.maxLength;
 		}
-		const col = (this as any).$metadata.getColumn(this.dataBind);
-		return col;
-	}*/
-	/*get editSize  () {
-		if(this.dataBind==undefined) {
-			return false;
-		}
-		const col = (this as any).$metadata.getColumn(this.dataBind);
-		if(!col) {
-			console.error(`${this.dataBind} is not exists`);
-		}
-		return col.editSize;
-		return 100;
-	}		*/
-	/*get dataEditable  () {
-		//const view = ViewUtil.getView(this);
-
-		//return view.dataEditable;
-		return true;
-	}*/
-	protected onInput (event: object) {
-		this.$emit('input', event);
+		return undefined;
 	}
+
+	@Emit('input')
+	protected onInput(event: object) {
+		return event;
+	}
+	/*protected onInput (event: object) {
+		this.$emit('input', event);
+	}*/
 }
 </script>
 

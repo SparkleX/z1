@@ -4,7 +4,8 @@
   "scripts": {
     "install": "lerna bootstrap",
     "install2": "lerna bootstrap --hoist",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "clean": "lerna run clean"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",

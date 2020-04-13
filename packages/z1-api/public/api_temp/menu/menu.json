@@ -8,6 +8,11 @@
 				"link": "/"
 			},
 			{
+				"icon": "mdi-home",
+				"label": "Test Home",
+				"link": "/test/home"
+			},			
+			{
 				"icon": "mdi-face",
 				"label": "Business Partner",
 				"link": "/OCRD"
